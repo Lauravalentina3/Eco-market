@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:gravity="center_horizontal"
+        android:id="@+id/layout_productos">
+
+        <!-- Producto 1 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/imagen_borde_redondo"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:elevation="4dp">
+
+            <ImageView
+                android:layout_width="250dp"
+                android:layout_height="150dp"
+                android:src="@drawable/producto1"
+                android:scaleType="centerCrop"
+                android:background="@drawable/imagen_borde_redondo"
+                android:clipToOutline="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="corrector de clinique"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blanco"
+            android:text="Corrector tapa ojeras de larga duracion" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blanco"
+            android:text="Precio: $50000" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blanco"
+            android:text="Disponible: 5 unidades" />
+
+        <Button
+            android:id="@+id/btn_add1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir al Carrito"
+            android:textColor="@color/negro"
+            android:backgroundTint="@color/rosado"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+    <!-- Producto 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/imagen_borde_redondo"
+        android:padding="16dp"
+        android:layout_marginBottom="20dp"
+        android:gravity="center_horizontal"
+        android:elevation="4dp">
+
+        <ImageView
+            android:layout_width="250dp"
+            android:layout_height="150dp"
+            android:src="@drawable/producto2"
+            android:scaleType="centerCrop"
+            android:background="@drawable/imagen_borde_redondo"
+            android:clipToOutline="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="corrector de maybelline"
+            android:textColor="@color/blanco"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:layout_width="218dp"
+            android:layout_height="wrap_content"
+            android:text="corrector neutralizante de ojeras,para pieles mayores"
+            android:textAlignment="center"
+            android:textColor="@color/blanco" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blanco"
+            android:text="Precio: $45000" />
+
+        <TextView android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/blanco"
+            android:text="Disponible: 3 unidades" />
+
+        <Button
+            android:id="@+id/btn_add2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Añadir al Carrito"
+            android:textColor="@color/negro"
+            android:backgroundTint="@color/rosado"
+            android:layout_marginTop="12dp" />
+    </LinearLayout>
+
+</LinearLayout>
+    </ScrollView>

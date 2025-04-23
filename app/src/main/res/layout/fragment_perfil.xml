@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="40dp">
+
+        <ImageView
+            android:layout_width="239dp"
+            android:layout_height="234dp"
+            android:layout_marginTop="120dp"
+            android:layout_marginBottom="62dp"
+            android:clipToOutline="true"
+            android:contentDescription="@string/perfil_imagen_descripcion"
+            android:elevation="6dp"
+            android:src="@drawable/eco_market" />
+
+        <TextView
+            android:id="@+id/tv_nombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_nombre_completo"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@color/negro"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tv_correo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_correo_electronico"
+            android:textSize="16sp"
+            android:textColor="@color/negro"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp" />
+
+        <TextView
+            android:id="@+id/tv_telefono"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/perfil_numero_telefono"
+            android:textSize="16sp"
+            android:textColor="@color/negro"
+            android:textStyle="bold"
+            android:layout_marginBottom="32dp" />
+
+        <Button
+            android:id="@+id/btn_editar"
+            android:layout_width="wrap_content"
+            android:layout_height="41dp"
+            android:backgroundTint="@color/verde_fondo"
+            android:text="@string/perfil_editar"
+            android:textColor="@color/blanco" />
+    </LinearLayout>
+</ScrollView>

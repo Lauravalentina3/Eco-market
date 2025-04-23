@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homefragment">
+
+    <fragment
+        android:id="@+id/homefragment"
+        android:name="com.EcoMarket.Fragments.HomeFragment"
+        android:label="@string/home" />
+
+    <fragment
+        android:id="@+id/perfilfragment"
+        android:name="com.EcoMarket.Fragments.PerfilFragment"
+        android:label="@string/perfil" />
+
+    <fragment
+        android:id="@+id/editarperfilfragment"
+        android:name="com.EcoMarket.Fragments.EditarPerfilFragment"
+        android:label="@string/editar_perfil" />
+
+    <fragment
+        android:id="@+id/productosdipFragment"
+        android:name="com.EcoMarket.Fragments.ProductosDipFragment"
+        android:label="@string/productosdisp" />
+
+    <fragment
+        android:id="@+id/carritoFragment"
+        android:name="com.EcoMarket.Fragments.CarritoFragment"
+        android:label="@string/carrito" />
+
+    <fragment
+        android:id="@+id/productosFragment"
+        android:name="com.EcoMarket.Fragments.ProductosFragment"
+        android:label="@string/productos" />
+
+
+    <fragment
+        android:id="@+id/ubicacionFragment"
+        android:name="com.EcoMarket.Fragments.UbicacionFragment"
+        android:label="@string/ubicacion" />
+
+
+</navigation>
