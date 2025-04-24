@@ -1,4 +1,4 @@
 package com.EcoMarket
 
-class RolesActivity {
+class RolFragment {
 }

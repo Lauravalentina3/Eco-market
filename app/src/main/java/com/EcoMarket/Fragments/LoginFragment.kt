@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class loginActivity : AppCompatActivity() {
+class loginFragment : AppCompatActivity() {
     private lateinit var textViewRegistrar: TextView
     private lateinit var textViewrecuperarContraseña: TextView
     private lateinit var buttonLogin: Button

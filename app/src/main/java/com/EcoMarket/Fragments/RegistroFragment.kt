@@ -9,6 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.EcoMarket.Fragments.LoginFragment
 
 class RegistroActivity : AppCompatActivity() {
     private lateinit var editTextNombres: EditText
@@ -46,13 +47,13 @@ class RegistroActivity : AppCompatActivity() {
                 //metodo de guardar datos de usuario
                 guardarDatosUsuario()
                 //redireccionamiento
-                val intent = Intent(this,loginActivity::class.java)
+                val intent = Intent(this, LoginFragment::class.java)
                 startActivity(intent)
                 finish()
             }
         }
         buttonRegresar.setOnClickListener{
-            val intent = Intent(this, loginActivity::class.java)
+            val intent = Intent(this, LoginFragment::class.java)
             startActivity(intent)
             finish()
         }
