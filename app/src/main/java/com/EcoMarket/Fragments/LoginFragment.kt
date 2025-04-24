@@ -1,43 +1,44 @@
-package com.EcoMarket
+package com.EcoMarket.Fragments // ¡Importante! Cambiar al paquete de Fragments
 
-import android.content.Intent
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.EcoMarket.R
 
-class loginFragment : AppCompatActivity() {
+class LoginFragment : Fragment() {
     private lateinit var textViewRegistrar: TextView
     private lateinit var textViewrecuperarContraseña: TextView
     private lateinit var buttonLogin: Button
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
 
-        setContentView(R.layout.fragment_login)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        return inflater.inflate(R.layout.fragment_login, container, false)
+    }
 
-        textViewRegistrar= findViewById(R.id.textRegistrologin)
-        textViewrecuperarContraseña = findViewById(R.id.textResetPassword)
-        buttonLogin = findViewById(R.id.buttonLogin)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        textViewRegistrar.setOnClickListener{
-            //redireccionamiento
-            val intent = Intent(this,RegistroActivity::class.java)
-            startActivity(intent)
-            finish()
+        textViewRegistrar = view.findViewById(R.id.textRegistrologin)
+        textViewrecuperarContraseña = view.findViewById(R.id.textResetPassword)
+        buttonLogin = view.findViewById(R.id.buttonLogin)
+
+        textViewRegistrar.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registroFragment)
         }
 
-        textViewrecuperarContraseña.setOnClickListener{
-            //redireccionamiento
-            val intent = Intent(this, RecuperacionContraseñaActivity::class.java)
-            startActivity(intent)
-            finish()
+        textViewrecuperarContraseña.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recuperacionContrasenaFragment)
         }
 
-        buttonLogin.setOnClickListener{
-            //redireccionamiento
-            val intent = Intent(this,PerfilActivity::class.java)
-            startActivity(intent)
-            finish()
+        buttonLogin.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_homefragment)
+        }
         }
     }
-}

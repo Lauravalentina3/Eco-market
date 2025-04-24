@@ -2,7 +2,36 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homefragment">
+    app:startDestination="@id/inicioFragment">
+
+    <fragment
+        android:id="@+id/inicioFragment"
+        android:name="com.EcoMarket.Fragments.InicioFragment"
+        android:label="InicioFragment"
+        layout="@layout/fragment_inicio">
+        <action
+            android:id="@+id/action_inicioFragment_to_rolFragment"
+            app:destination="@id/rolFragment"
+            app:popUpTo="@+id/inicioFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/rolFragment"
+        android:name="com.EcoMarket.Fragments.RolFragment"
+        android:label="RolFragment"
+        layout="@layout/fragment_rol">
+        <action
+            android:id="@+id/action_rolFragment_to_homeFragment"
+            app:destination="@id/homefragment"
+            app:popUpTo="@+id/rolFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_rolFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/rolFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
     <fragment
         android:id="@+id/homefragment"
@@ -11,18 +40,23 @@
 
     <fragment
         android:id="@+id/perfilfragment"
-        android:name="com.EcoMarket.Fragments.PerfilFragment"
-        android:label="@string/perfil" />
+        android:name="com.EcoMarket.Fragments.PerfilUsuarioFragment"
+        android:label="@string/perfil" >
+        <action
+            android:id="@+id/action_perfilUsuarioFragment_to_editarperfilfragment"
+            app:destination="@id/editarperfilfragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/editarperfilfragment"
         android:name="com.EcoMarket.Fragments.EditarPerfilFragment"
-        android:label="@string/editar_perfil" />
-
-    <fragment
-        android:id="@+id/productosdipFragment"
-        android:name="com.EcoMarket.Fragments.ProductosDipFragment"
-        android:label="@string/productosdisp" />
+        android:label="@string/editar_perfil" >
+        <action
+            android:id="@+id/action_editarPerfilFragment_to_perfilfragment"
+            app:destination="@id/perfilfragment"
+            app:popUpTo="@+id/perfilfragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
 
     <fragment
         android:id="@+id/carritoFragment"
@@ -36,9 +70,48 @@
 
 
     <fragment
-        android:id="@+id/ubicacionFragment"
-        android:name="com.EcoMarket.Fragments.UbicacionFragment"
-        android:label="@string/ubicacion" />
+        android:id="@+id/loginFragment"
+        android:name="com.EcoMarket.Fragments.LoginFragment"
+        android:label="LoginFragment"
+        layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_registroFragment"
+            app:destination="@id/registroFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_recuperacionContrasenaFragment"
+            app:destination="@id/recuperacionContrasenaFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homefragment"
+            app:destination="@id/homefragment" />
+    </fragment>
 
+    <fragment
+        android:id="@+id/registroFragment"
+        android:name="com.EcoMarket.Fragments.RegistroFragment"
+        android:label="RegistroFragment"
+        layout="@layout/fragment_registro">
+        <action
+            android:id="@+id/action_registroFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/registroFragment"
+            app:popUpToInclusive="true"/>
+        <action
+            android:id="@+id/action_registroFragment_to_recuperacionContrasenaFragment"
+            app:destination="@id/recuperacionContrasenaFragment"
+            app:popUpTo="@+id/recuperacionContrasenaFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/recuperacionContrasenaFragment"
+        android:name="com.EcoMarket.Fragments.RecuperacionContrasenaFragment"
+        android:label="RecuperacionContrasenaFragment"
+        layout="@layout/fragment_recuperacion_contrasena" >
+        <action
+            android:id="@+id/action_recuperacionContrasenaFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:popUpTo="@+id/recuperacionContrasenaFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 
 </navigation>

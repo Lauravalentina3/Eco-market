@@ -2,93 +2,211 @@ package com.EcoMarket.Fragments
 
 import android.content.Context
 import android.os.Bundle
-import android.view.*
-import android.widget.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.LinearLayout
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.tallersegundomomento.R
+import com.EcoMarket.R
+import java.text.NumberFormat
+import java.util.Locale
 
 class CarritoFragment : Fragment() {
 
-    private val precioClinique = 50000
-    private val precioMaybelline = 45000
+    // Constantes para los precios de los productos.
+    private  val PRECIO_BOLSA_ANIMALES = 10600
+    private  val PRECIO_BOLSA_5KG = 20400
+    private  val PRECIO_BOLSA_GARFIELD = 20400
+    private  val PRECIO_BOLSA_MANDALAS = 20400
+
+    // SharedPreferences para guardar el estado del carrito
+    private lateinit var prefs: android.content.SharedPreferences
+
+    // Vistas del fragmento.  Declararlas como variables de clase permite acceder a ellas desde varios métodos.
+    private lateinit var layoutBolsaAnimales: LinearLayout
+    private lateinit var layoutBolsa5kg: LinearLayout
+    private lateinit var layoutBolsaGarfield: LinearLayout
+    private lateinit var layoutBolsaMandalas: LinearLayout
+    private lateinit var tvBolsaAnimalesDetalle: TextView
+    private lateinit var tvBolsa5kgDetalle: TextView
+    private lateinit var tvBolsaGarfieldDetalle: TextView
+    private lateinit var tvBolsaMandalasDetalle: TextView
+    private lateinit var tvResumen: TextView
+    private lateinit var btnEliminarBolsaAnimales: Button
+    private lateinit var btnEliminarBolsa5kg: Button
+    private lateinit var btnEliminarBolsaGarfield: Button
+    private lateinit var btnEliminarBolsaMandalas: Button
+    private lateinit var btnPagar: Button
+
+    // Cantidades de productos.  Se inicializan en onCreateView.
+    private var cantidadBolsaAnimales: Int = 0
+    private var cantidadBolsa5kg: Int = 0
+    private var cantidadBolsaGarfield: Int = 0
+    private var cantidadBolsaMandalas: Int = 0
+    private val localeES = Locale("es", "ES")
+    private val formatoMonedaES = NumberFormat.getCurrencyInstance(localeES)
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        // Inicializar SharedPreferences en onAttach, antes de onCreateView
+        prefs = context.getSharedPreferences("carrito", Context.MODE_PRIVATE)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
+    ): View? { // El tipo de retorno debe ser View?
+        // Inflar el layout del fragmento
         val view = inflater.inflate(R.layout.fragment_carrito, container, false)
 
-        val prefs = requireContext().getSharedPreferences("carrito", Context.MODE_PRIVATE)
-
-        // Cantidades actuales
-        var cantidadClinique = prefs.getInt("cantidad_clinique", 0)
-        var cantidadMaybelline = prefs.getInt("cantidad_maybelline", 0)
-
-        // Vistas
-        val layoutClinique = view.findViewById<LinearLayout>(R.id.layout_clinique)
-        val layoutMaybelline = view.findViewById<LinearLayout>(R.id.layout_maybelline)
-        val tvClinique = view.findViewById<TextView>(R.id.tv_clinique_detalle)
-        val tvMaybelline = view.findViewById<TextView>(R.id.tv_maybelline_detalle)
-        val tvResumen = view.findViewById<TextView>(R.id.tv_resumen)
-        val btnEliminar1 = view.findViewById<Button>(R.id.btn_eliminar_clinique)
-        val btnEliminar2 = view.findViewById<Button>(R.id.btn_eliminar_maybelline)
-        val btnPagar = view.findViewById<Button>(R.id.btn_pagar)
-
-        // Función para actualizar resumen
-        fun actualizarResumen() {
-            val totalProductos = cantidadClinique + cantidadMaybelline
-            val totalPrecio = (cantidadClinique * precioClinique) + (cantidadMaybelline * precioMaybelline)
-            tvResumen.text = "Total de productos: $totalProductos  |  Total a pagar: $$totalPrecio"
-        }
-
-        // Mostrar detalles
-        if (cantidadClinique > 0) {
-            tvClinique.text = "Cantidad: $cantidadClinique | Precio: $$precioClinique | Subtotal: $${cantidadClinique * precioClinique}"
-        } else {
-            layoutClinique.visibility = View.GONE
-        }
-
-        if (cantidadMaybelline > 0) {
-            tvMaybelline.text = "Cantidad: $cantidadMaybelline | Precio: $$precioMaybelline | Subtotal: $${cantidadMaybelline * precioMaybelline}"
-        } else {
-            layoutMaybelline.visibility = View.GONE
-        }
-
+        // Inicializar las vistas usando findViewById
+        inicializarVistas(view)
+        // Obtener las cantidades del carrito desde SharedPreferences
+        obtenerCantidades()
+        // Configurar listeners de los botones
+        configurarListeners()
+        // Mostrar los detalles del carrito
+        mostrarDetallesCarrito()
+        // Actualizar el resumen del carrito
         actualizarResumen()
 
-        // Eliminar Clinique
-        btnEliminar1.setOnClickListener {
-            cantidadClinique = 0
-            prefs.edit().putInt("cantidad_clinique", 0).apply()
-            layoutClinique.visibility = View.GONE
+        return view // Devolver la vista inflada
+    }
+
+    private fun inicializarVistas(view: View) {
+        layoutBolsaAnimales = view.findViewById(R.id.layout_bolsa_animales)
+        layoutBolsa5kg = view.findViewById(R.id.layout_bolsa_5kg)
+        layoutBolsaGarfield = view.findViewById(R.id.layout_bolsa_garfield)
+        layoutBolsaMandalas = view.findViewById(R.id.layout_bolsa_mandalas)
+
+        tvBolsaAnimalesDetalle = view.findViewById(R.id.tv_bolsa_animales_detalle)
+        tvBolsa5kgDetalle = view.findViewById(R.id.tv_bolsa_5kg_detalle)
+        tvBolsaGarfieldDetalle = view.findViewById(R.id.tv_bolsa_garfield_detalle)
+        tvBolsaMandalasDetalle = view.findViewById(R.id.tv_bolsa_mandalas_detalle)
+
+        tvResumen = view.findViewById(R.id.tv_resumen)
+        btnEliminarBolsaAnimales = view.findViewById(R.id.btn_eliminar_bolsa_animales)
+        btnEliminarBolsa5kg = view.findViewById(R.id.btn_eliminar_bolsa_5kg)
+        btnEliminarBolsaGarfield = view.findViewById(R.id.btn_eliminar_bolsa_garfield)
+        btnEliminarBolsaMandalas = view.findViewById(R.id.btn_eliminar_bolsa_mandalas)
+        btnPagar = view.findViewById(R.id.btn_pagar)
+    }
+
+    private fun obtenerCantidades() {
+        cantidadBolsaAnimales = prefs.getInt("cantidad_bolsa_animales", 0)
+        cantidadBolsa5kg = prefs.getInt("cantidad_bolsa_5kg", 0)
+        cantidadBolsaGarfield = prefs.getInt("cantidad_bolsa_garfield", 0)
+        cantidadBolsaMandalas = prefs.getInt("cantidad_bolsa_mandalas", 0)
+    }
+
+    private fun configurarListeners() {
+        btnEliminarBolsaAnimales.setOnClickListener {
+            cantidadBolsaAnimales = 0
+            prefs.edit().putInt("cantidad_bolsa_animales", 0).apply()
+            layoutBolsaAnimales.visibility = View.GONE
             actualizarResumen()
+            mostrarDetallesCarrito()
             Toast.makeText(context, "Producto eliminado", Toast.LENGTH_SHORT).show()
         }
 
-        // Eliminar Maybelline
-        btnEliminar2.setOnClickListener {
-            cantidadMaybelline = 0
-            prefs.edit().putInt("cantidad_maybelline", 0).apply()
-            layoutMaybelline.visibility = View.GONE
+        btnEliminarBolsa5kg.setOnClickListener {
+            cantidadBolsa5kg = 0
+            prefs.edit().putInt("cantidad_bolsa_5kg", 0).apply()
+            layoutBolsa5kg.visibility = View.GONE
             actualizarResumen()
-            Toast.makeText(context, "Producto eliminado,espero tomaras una buena decision..", Toast.LENGTH_SHORT).show()
+            mostrarDetallesCarrito()
+            Toast.makeText(context, "Producto eliminado", Toast.LENGTH_SHORT).show()
         }
 
-        // Pagar
+        btnEliminarBolsaGarfield.setOnClickListener {
+            cantidadBolsaGarfield = 0
+            prefs.edit().putInt("cantidad_bolsa_garfield", 0).apply()
+            layoutBolsaGarfield.visibility = View.GONE
+            actualizarResumen()
+            mostrarDetallesCarrito()
+            Toast.makeText(context, "Producto eliminado", Toast.LENGTH_SHORT).show()
+        }
+
+        btnEliminarBolsaMandalas.setOnClickListener {
+            cantidadBolsaMandalas = 0
+            prefs.edit().putInt("cantidad_bolsa_mandalas", 0).apply()
+            layoutBolsaMandalas.visibility = View.GONE
+            actualizarResumen()
+            mostrarDetallesCarrito()
+            Toast.makeText(context, "Producto eliminado", Toast.LENGTH_SHORT).show()
+        }
+
         btnPagar.setOnClickListener {
-            if (cantidadClinique + cantidadMaybelline > 0) {
+            val totalProductos = cantidadBolsaAnimales + cantidadBolsa5kg + cantidadBolsaGarfield + cantidadBolsaMandalas
+            if (totalProductos > 0) {
                 Toast.makeText(context, "Gracias por tu compra estrellita 💖", Toast.LENGTH_LONG).show()
-                prefs.edit().clear().apply()
-                layoutClinique.visibility = View.GONE
-                layoutMaybelline.visibility = View.GONE
-                cantidadClinique = 0
-                cantidadMaybelline = 0
+                prefs.edit().clear().apply() // Clear the cart.
+                resetCantidades()
+                mostrarDetallesCarrito()
                 actualizarResumen()
             } else {
                 Toast.makeText(context, "Tu carrito está vacío 😢 estas segura?", Toast.LENGTH_SHORT).show()
             }
         }
+    }
 
-        return view
+    private fun mostrarDetallesCarrito() {
+
+        val precioBolsaAnimalesFormateado = formatoMonedaES.format(PRECIO_BOLSA_ANIMALES)
+        val precioBolsa5kgFormateado = formatoMonedaES.format(PRECIO_BOLSA_5KG)
+        val precioBolsaGarfieldFormateado = formatoMonedaES.format(PRECIO_BOLSA_GARFIELD)
+        val precioBolsaMandalasFormateado = formatoMonedaES.format(PRECIO_BOLSA_MANDALAS)
+
+        // Mostrar detalles de los productos.  La lógica es la misma, solo cambian los nombres de las variables.
+        if (cantidadBolsaAnimales > 0) {
+            tvBolsaAnimalesDetalle.text =
+                "Cantidad: $cantidadBolsaAnimales | Precio: ${precioBolsaAnimalesFormateado} | Subtotal: ${formatoMonedaES.format(cantidadBolsaAnimales * PRECIO_BOLSA_ANIMALES)}"
+            layoutBolsaAnimales.visibility = View.VISIBLE
+        } else {
+            layoutBolsaAnimales.visibility = View.GONE
+        }
+
+        if (cantidadBolsa5kg > 0) {
+            tvBolsa5kgDetalle.text =
+                "Cantidad: $cantidadBolsa5kg | Precio: ${precioBolsa5kgFormateado} | Subtotal: ${formatoMonedaES.format(cantidadBolsa5kg * PRECIO_BOLSA_5KG)}"
+            layoutBolsa5kg.visibility = View.VISIBLE
+        } else {
+            layoutBolsa5kg.visibility = View.GONE
+        }
+
+        if (cantidadBolsaGarfield > 0) {
+            tvBolsaGarfieldDetalle.text =
+                "Cantidad: $cantidadBolsaGarfield | Precio: ${precioBolsaGarfieldFormateado} | Subtotal: ${formatoMonedaES.format(cantidadBolsaGarfield * PRECIO_BOLSA_GARFIELD)}"
+            layoutBolsaGarfield.visibility = View.VISIBLE
+        } else {
+            layoutBolsaGarfield.visibility = View.GONE
+        }
+
+        if (cantidadBolsaMandalas > 0) {
+            tvBolsaMandalasDetalle.text =
+                "Cantidad: $cantidadBolsaMandalas | Precio: ${precioBolsaMandalasFormateado} | Subtotal: ${formatoMonedaES.format(cantidadBolsaMandalas * PRECIO_BOLSA_MANDALAS)}"
+            layoutBolsaMandalas.visibility = View.VISIBLE
+        } else {
+            layoutBolsaMandalas.visibility = View.GONE
+        }
+    }
+
+    private fun actualizarResumen() {
+        val totalProductos = cantidadBolsaAnimales + cantidadBolsa5kg + cantidadBolsaGarfield + cantidadBolsaMandalas
+        val totalPrecio =
+            (cantidadBolsaAnimales * PRECIO_BOLSA_ANIMALES) + (cantidadBolsa5kg * PRECIO_BOLSA_5KG) +
+                    (cantidadBolsaGarfield * PRECIO_BOLSA_GARFIELD) + (cantidadBolsaMandalas * PRECIO_BOLSA_MANDALAS)
+        tvResumen.text = "Total de productos: $totalProductos  |  Total a pagar: ${formatoMonedaES.format(totalPrecio)}"
+    }
+
+    private fun resetCantidades() {
+        cantidadBolsaAnimales = 0
+        cantidadBolsa5kg = 0
+        cantidadBolsaGarfield = 0
+        cantidadBolsaMandalas = 0
     }
 }
+

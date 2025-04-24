@@ -1,4 +1,4 @@
-package com.EcoMarket
+package com.EcoMarket.Fragments
 
-class UbicacionActivity {
+class UbicacionFragment {
 }

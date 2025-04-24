@@ -2,4 +2,9 @@
 <resources>
     <item name="textViewHoras" type="id" />
     <item name="textViewMinutos" type="id" />
+    <item name="mainActivity" type="id" />
+    <item name="mainToolBar" type="id" />
+    <item name="carrito_compras" type="id">carritocompras</item>
+    <item name="navHostFragment" type="id">fragment</item>
+    <item name="mainNavMenu" type="id" />
 </resources>

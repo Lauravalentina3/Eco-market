@@ -14,12 +14,6 @@
             android:id="@+id/productosFragment"
             android:title="@string/productos" />
         <item
-            android:id="@+id/productosdipFragment"
-            android:title="@string/productosdisp" />
-        <item
-            android:id="@+id/ubicacionFragment"
-            android:title="@string/ubicacion" />
-        <item
             android:id="@+id/carritoFragment"
             android:title="@string/carrito" />
 

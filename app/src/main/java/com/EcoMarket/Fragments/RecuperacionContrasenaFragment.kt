@@ -69,9 +69,7 @@ class RecuperacionContrasenaFragment : Fragment() {
             Toast.makeText(requireContext(), "Se le ha enviado un correo con su nueva contraseña de recuperación", Toast.LENGTH_SHORT).show()
 
             buttonEnviar.postDelayed({
-                // Navegar de vuelta al LoginFragment (asumiendo que tienes una acción definida)
                 findNavController().navigate(R.id.action_recuperacionContrasenaFragment_to_loginFragment)
-                // Si no usas Navigation Component, podrías comunicarte con la Activity para cambiar el Fragment
             }, 1500)
         } else {
             Toast.makeText(requireContext(), "El correo electrónico ingresado no existe en el sistema", Toast.LENGTH_SHORT).show()

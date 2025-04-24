@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/blanco">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,11 +16,15 @@
             android:id="@+id/iv_foto_perfil"
             android:layout_width="150dp"
             android:layout_height="150dp"
-            android:src="@drawable/eco_market"
+            android:src="@drawable/ecosinletra"
             android:layout_marginBottom="12dp"
             android:clipToOutline="true"
             android:elevation="6dp"
-            android:contentDescription="@string/perfil_foto_descripcion" />
+            android:contentDescription="@string/perfil_foto_descripcion"
+            android:scaleType="centerCrop"
+            android:background="@drawable/imagen_borde_redondo"
+
+            />
 
         <Button
             android:id="@+id/btn_cambiar_foto"
