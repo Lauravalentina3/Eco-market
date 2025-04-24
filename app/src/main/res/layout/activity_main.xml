@@ -33,13 +33,13 @@
                     android:src="@drawable/ecosinletra" />
 
                 <TextView
-                    android:layout_width="239dp"
-                    android:layout_height="wrap_content"
+                    android:layout_width="168dp"
+                    android:layout_height="match_parent"
                     android:gravity="center"
                     android:padding="10dp"
                     android:text="@string/app_name"
                     android:textColor="@color/blanco"
-                    android:textSize="30sp"
+                    android:textSize="25sp"
                     android:textStyle="bold" />
 
                 <ImageView

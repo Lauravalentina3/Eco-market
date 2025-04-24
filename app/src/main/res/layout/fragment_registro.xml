@@ -43,6 +43,7 @@
             android:gravity="center"
             android:hint="nombres"
             android:inputType="text"
+            android:textColor="@color/negro"
             android:textColorHint="@color/gris_letra" />
 
         <EditText

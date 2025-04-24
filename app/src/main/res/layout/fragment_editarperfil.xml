@@ -1,82 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blanco">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/iv_foto_perfil"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/borde_peque"
+        android:clipToOutline="true"
+        android:contentDescription="@string/perfil_foto_descripcion"
+        android:elevation="6dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ecosinletra"
+
+        app:layout_constraintBottom_toTopOf="@+id/btn_cambiar_foto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.785" />
+
+    <Button
+        android:id="@+id/btn_cambiar_foto"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:paddingHorizontal="24dp"
-        android:paddingVertical="40dp">
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="@color/verde_boton"
+        android:text="@string/perfil_foto_descripcion"
+        android:textColor="@color/gris_letra"
+        app:layout_constraintBottom_toTopOf="@+id/et_nombre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/iv_foto_perfil"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/ecosinletra"
-            android:layout_marginBottom="12dp"
-            android:clipToOutline="true"
-            android:elevation="6dp"
-            android:contentDescription="@string/perfil_foto_descripcion"
-            android:scaleType="centerCrop"
-            android:background="@drawable/imagen_borde_redondo"
+    <EditText
+        android:id="@+id/et_telefono"
+        android:layout_width="347dp"
+        android:layout_height="67dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/edit_text_rounded"
+        android:hint="@string/perfil_contraseña_hint"
+        android:inputType="phone"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        app:layout_constraintBottom_toTopOf="@+id/btn_guardar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent" />
 
-            />
+    <EditText
+        android:id="@+id/et_nombre"
+        android:layout_width="346dp"
+        android:layout_height="76dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/edit_text_rounded"
+        android:hint="@string/nombre"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        app:layout_constraintBottom_toTopOf="@+id/et_correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/btn_cambiar_foto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
-            android:backgroundTint="@color/verde_fondo"
-            android:text="@string/perfil_foto_descripcion"
-            android:textColor="@color/blanco" />
+    <EditText
+        android:id="@+id/et_correo"
+        android:layout_width="345dp"
+        android:layout_height="67dp"
+        android:background="@drawable/edit_text_rounded"
+        android:hint="@string/correo_electronico"
+        android:inputType="textEmailAddress"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="427dp" />
 
-        <EditText
-            android:id="@+id/et_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/nombre"
-            android:background="@drawable/edit_text_rounded"
-            android:padding="16dp"
-            android:textColor="@color/negro"
-            android:layout_marginBottom="24dp" />
+    <Button
+        android:id="@+id/btn_guardar"
+        android:layout_width="220dp"
+        android:layout_height="54dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="@color/verde_fondo"
+        android:paddingVertical="12dp"
+        android:text="@string/perfil_guardar_cambios"
+        android:textColor="@color/blanco"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <EditText
-            android:id="@+id/et_correo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/correo_electronico"
-            android:inputType="textEmailAddress"
-            android:background="@drawable/edit_text_rounded"
-            android:padding="16dp"
-            android:textColor="@color/negro"
-            android:layout_marginBottom="24dp" />
-
-        <EditText
-            android:id="@+id/et_telefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/perfil_contraseña_hint"
-            android:inputType="phone"
-            android:background="@drawable/edit_text_rounded"
-            android:padding="16dp"
-            android:textColor="@color/negro"
-            android:layout_marginBottom="32dp" />
-
-        <Button
-            android:id="@+id/btn_guardar"
-            android:layout_width="220dp"
-            android:layout_height="54dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="12dp"
-            android:backgroundTint="@color/verde_fondo"
-            android:paddingVertical="12dp"
-            android:text="@string/perfil_guardar_cambios"
-            android:textColor="@color/blanco"
-            android:textSize="16sp" />
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@
         android:id="@+id/rolFragment"
         android:name="com.EcoMarket.Fragments.RolFragment"
         android:label="RolFragment"
-        layout="@layout/fragment_rol">
+        layout="@layout/fragment_roles">
         <action
             android:id="@+id/action_rolFragment_to_homeFragment"
             app:destination="@id/homefragment"

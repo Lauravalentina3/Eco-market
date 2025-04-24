@@ -100,10 +100,7 @@ class ProductosFragment : Fragment() {
         actualizarCantidadesEnUI()
         actualizarCantidadProductoEnUI(cantidadKey, textViewCantidad)
 
-        // Navegar al fragmento del carrito después de agregar el producto
-        Handler(Looper.getMainLooper()).postDelayed({
-            findNavController().navigate(R.id.carritoFragment)
-        }, 200)
+
     }
 
     private fun actualizarCantidadesEnUI() {
