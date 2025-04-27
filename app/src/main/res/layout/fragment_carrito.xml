@@ -63,8 +63,8 @@
                 android:id="@+id/btn_eliminar_bolsa_animales"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="-"
-                android:textColor="@color/negro"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
 
             <TextView
@@ -81,8 +81,8 @@
                 android:id="@+id/btn_add_bolsa_animales"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="+"
-                android:textColor="@color/negro"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
@@ -127,8 +127,8 @@
                 android:id="@+id/btn_eliminar_bolsa_5kg"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="-"
-                android:textColor="@color/negro"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
 
             <TextView
@@ -145,8 +145,8 @@
                 android:id="@+id/btn_add_bolsa_5kg"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="+"
-                android:textColor="@color/negro"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
@@ -191,8 +191,8 @@
                 android:id="@+id/btn_eliminar_bolsa_garfield"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="-"
-                android:textColor="@color/negro"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
 
             <TextView
@@ -209,8 +209,8 @@
                 android:id="@+id/btn_add_bolsa_garfield"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="+"
-                android:textColor="@color/negro"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
@@ -255,8 +255,8 @@
                 android:id="@+id/btn_eliminar_bolsa_mandalas"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="-"
-                android:textColor="@color/negro"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
 
             <TextView
@@ -273,8 +273,8 @@
                 android:id="@+id/btn_add_bolsa_mandala"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
-                android:text="+"
-                android:textColor="@color/negro"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 

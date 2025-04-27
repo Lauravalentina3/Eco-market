@@ -13,7 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.EcoMarket.R
 import com.google.android.material.navigation.NavigationView
-import android.widget.ImageView // Importa la clase ImageView
+import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var toolbar: Toolbar
     private lateinit var navView: NavigationView
     private lateinit var drawerToggle: ActionBarDrawerToggle
-    private lateinit var carritoComprasImageView: ImageView // Declara la variable para el ImageView del carrito
+    private lateinit var carritoComprasImageView: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,12 +60,9 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        // Inicia la variable carritoComprasImageView después de findViewById
-        carritoComprasImageView = findViewById(R.id.carrito_compras) // Encuentra el ImageView por su ID
-
-        // Configuracion de  el OnClickListener para el carrito de compras
+        carritoComprasImageView = findViewById(R.id.carrito_compras)
         carritoComprasImageView.setOnClickListener {
-            navController.navigate(R.id.carritoFragment) // Navega al CarritoFragment
+            navController.navigate(R.id.carritoFragment)
         }
 
         setupVisibility()
@@ -77,7 +74,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupVisibility(destinationId: Int = navController.currentDestination?.id ?: R.id.inicioFragment) {
         when (destinationId) {
-            R.id.loginFragment, R.id.registroFragment, R.id.recuperacionContrasenaFragment, R.id.inicioFragment, R.id.rolFragment -> {
+            R.id.loginFragmentMain, R.id.registroFragmentMain, R.id.recuperacionContrasenaFragmentMain, R.id.inicioFragment, R.id.rolFragment -> {
                 toolbar.visibility = View.GONE
                 drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED)
                 navView.visibility = View.GONE

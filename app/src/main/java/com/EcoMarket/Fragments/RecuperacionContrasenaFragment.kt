@@ -20,26 +20,30 @@ class RecuperacionContrasenaFragment : Fragment() {
 
     private lateinit var ediTextCorreo: EditText
     private lateinit var buttonEnviar: Button
-    private lateinit var sharedPreferences: SharedPreferences
     private lateinit var textResetPassword: TextView
+    private lateinit var sharedPreferences: SharedPreferences // Declarar como propiedad de la clase
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        sharedPreferences = context.getSharedPreferences("UserData", Context.MODE_PRIVATE)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el layout para este fragmento
         return inflater.inflate(R.layout.fragment_recuperacion_contrasena, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        sharedPreferences = requireActivity().getSharedPreferences("UserData", Context.MODE_PRIVATE)
+
 
         // Inicializando variables generales
         ediTextCorreo = view.findViewById(R.id.editTextEmail)
         buttonEnviar = view.findViewById(R.id.buttonRecuperacion)
-        textResetPassword = view.findViewById(R.id.textResetPassword) // Asegúrate de tener este ID en tu layout
+        textResetPassword = view.findViewById(R.id.textRegistrologin)  // Inicializado correctamente
 
         // Configurar el botón de envío
         buttonEnviar.setOnClickListener {
@@ -47,6 +51,10 @@ class RecuperacionContrasenaFragment : Fragment() {
                 // Verificación del correo electrónico
                 verificarCorreo()
             }
+        }
+        //Configurar textview para ir a login
+        textResetPassword.setOnClickListener{
+            findNavController().navigate(R.id.action_recuperacionContrasenaFragment_to_loginFragment)
         }
     }
 
@@ -61,7 +69,7 @@ class RecuperacionContrasenaFragment : Fragment() {
 
     private fun verificarCorreo() {
         val correo = ediTextCorreo.text.toString().trim()
-        val correoRegistrado = sharedPreferences.getString("correo", "")
+        val correoRegistrado = sharedPreferences.getString("correo", "") // Usar la propiedad de la clase
         val array = sharedPreferences.all
 
         if (correo == correoRegistrado) {

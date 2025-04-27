@@ -31,12 +31,12 @@
         android:textAlignment="center"
         android:textColor="@color/negro"
         android:textColorHint="@color/gris_letra"
-        app:layout_constraintEnd_toEndOf="@+id/contraseña_usuario_login2"
-        app:layout_constraintStart_toStartOf="@+id/contraseña_usuario_login2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextCorreo"
+        app:layout_constraintStart_toStartOf="@+id/editTextCorreo"
         app:layout_constraintTop_toBottomOf="@+id/textResetPassword3" />
 
     <TextView
-        android:id="@+id/textResetPassword2"
+        android:id="@+id/correo_electronicologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="40dp"
@@ -56,22 +56,23 @@
         android:textColor="@color/negro"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contraseña_usuario_login2" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCorreo" />
 
     <EditText
-        android:id="@+id/contraseña_usuario_login2"
+        android:id="@+id/editTextCorreo"
         style="@style/EditTextRounded"
         android:layout_width="0dp"
         android:layout_height="65dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:hint="@string/Ejemplocorreo"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textColor="@color/negro"
         android:textColorHint="@color/gris_letra"
         app:layout_constraintEnd_toEndOf="@+id/inicio_sesion"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/inicio_sesion"
-        app:layout_constraintTop_toBottomOf="@+id/textResetPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/correo_electronicologin" />
 
     <Button
         android:id="@+id/buttonLogin"

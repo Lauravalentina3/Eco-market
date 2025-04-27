@@ -48,13 +48,37 @@ class RegistroFragment : Fragment() {
 
         // Inicializar variables de vista
         editTextNombres = view.findViewById(R.id.editTextNombres)
+        if (editTextNombres == null) {
+            Log.e("RegistroFragment", "Error: editTextNombres es nulo")
+        }
         editTextApellidos = view.findViewById(R.id.editTextApellidos)
+        if (editTextApellidos == null) {
+            Log.e("RegistroFragment", "Error: editTextApellidos es nulo")
+        }
         editTextCorreo = view.findViewById(R.id.editTextCorreo)
+        if (editTextCorreo == null) {
+            Log.e("RegistroFragment", "Error: editTextCorreo es nulo")
+        }
         editTextContrasena = view.findViewById(R.id.editTextContrasena)
+        if (editTextContrasena == null) {
+            Log.e("RegistroFragment", "Error: editTextContrasena es nulo")
+        }
         editTextRepetirContrasena = view.findViewById(R.id.editTextRepetirContrasena)
+        if (editTextRepetirContrasena == null) {
+            Log.e("RegistroFragment", "Error: editTextRepetirContrasena es nulo")
+        }
         buttonRegistro = view.findViewById(R.id.buttonRegistro)
+        if (buttonRegistro == null) {
+            Log.e("RegistroFragment", "Error: editTexteRegistro nulo")
+        }
         textRegistrologin = view.findViewById(R.id.textRegistrologin)
+        if (textRegistrologin == null) {
+            Log.e("RegistroFragment", "Error: editTextRegistroLogin nulo")
+        }
         textOlvidarContrasena = view.findViewById(R.id.buttonRegresar)
+        if (textOlvidarContrasena == null) {
+            Log.e("RegistroFragment", "Error: editTexteOlvideContraseña nulo")
+        }
 
         // Configuración listener botón de registro
         buttonRegistro.setOnClickListener {
@@ -68,11 +92,15 @@ class RegistroFragment : Fragment() {
 
         // Configurar listener para "Iniciar Sesión"
         textRegistrologin.setOnClickListener {
+            Log.d("RegistroFragment", "Clic en Iniciar Sesión")
             findNavController().navigate(R.id.action_registroFragment_to_loginFragment)
+            Log.d("RegistroFragment", "Navegación a LoginFragment completada")
         }
+
 
         // Configurar listener para "Olvidé mi Contraseña"
         textOlvidarContrasena.setOnClickListener {
+
             findNavController().navigate(R.id.action_registroFragment_to_recuperacionContrasenaFragment)
         }
     }
@@ -139,4 +167,3 @@ class RegistroFragment : Fragment() {
         return isValid
     }
 }
-

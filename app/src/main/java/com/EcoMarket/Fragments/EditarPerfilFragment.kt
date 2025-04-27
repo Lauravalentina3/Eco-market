@@ -29,7 +29,7 @@ class EditarPerfilFragment : Fragment() {
 
         // Datos existentes (o por defecto)
         etNombre.setText(prefs.getString("nombre", "Laura y kate"))
-        etCorreo.setText(prefs.getString("correo", "lauraykate@gmail.com"))
+        etCorreo.setText(prefs.getString("correo", "lauraykate05@gmail.com"))
         etTelefono.setText(prefs.getString("telefono", "3106558734"))
 
         // Botón simbólico de cambiar foto

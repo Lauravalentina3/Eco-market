@@ -63,5 +63,16 @@
     <string name="precio_bolsa_mandala">Precio: $20.400</string>
     <string name="disponible_bolsa_mandala">Disponible: 2 unidades</string>
     <string name="telefono">Telefono\n</string>
+    <string name="menos">-</string>
+    <string name="mas">+</string>
     <string name="correo_electronico2">Correo Electronico</string>
+        <string name="hint_nombre">Nombre Completo</string>
+    <string name="hint_apellidos">Apellidos Completo</string>
+        <string name="hint_email">Correo Electrónico</string>
+        <string name="hint_password">Contraseña</string>
+        <string name="hint_confirm_password">Confirmar Contraseña</string>
+        <string name="boton_registrar">Registrarse</string>
+    <string name="terminos_y_condiciones">Terminos y condiciones</string>
+        <string name="texto_ir_a_login">¿Ya tienes cuenta? Inicia Sesión</string>
+
 </resources>
