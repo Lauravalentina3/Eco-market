@@ -41,11 +41,13 @@ class MainActivity : AppCompatActivity() {
         drawerToggle = ActionBarDrawerToggle(
             this,
             drawerLayout,
+            toolbar, // Pass the toolbar here
             R.string.open_drawer,
             R.string.close_drawer
         )
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
+
 
         appBarConfiguration = AppBarConfiguration(
             setOf(

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/fisicalUbicationFragment">
+
+    <!-- Título de la vista -->
+    <!-- End Título de la vista -->
+
+    <!-- Fragment para insertar el mapa de Google Maps -->
+
+    <TextView
+        android:id="@+id/titleStoreAdresses"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/verde_fondo"
+        android:text="@string/titleStoreAddresses"
+        android:textAlignment="center"
+        android:textColor="@color/blanco"
+        android:textSize="25sp" />
+
+    <fragment
+        android:id="@+id/googleMapsFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+    <!-- End Fragment para insertar el mapa de Google Maps -->
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Listado de ubicaciones -->
+        <LinearLayout
+            android:id="@+id/locationsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/verde_fondo"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/storeAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/defaultAddress"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textColor="@color/negro"
+                />
+
+            <Button
+                android:id="@+id/storeAddressOne"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/storeAddressOne"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textColor="@color/negro"/>
+
+            <Button
+                android:id="@+id/storeAddressTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/storeAddressTwo"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textColor="@color/negro"/>
+        </LinearLayout>
+        <!-- End Listado de ubicaciones -->
+    </HorizontalScrollView>
+</LinearLayout>
