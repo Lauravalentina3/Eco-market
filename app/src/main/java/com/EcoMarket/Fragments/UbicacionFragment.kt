@@ -34,15 +34,15 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
 
         // Configurar los botones
         view.findViewById<Button>(R.id.storeAddress).setOnClickListener {
-            moveToLocation(ubication1, R.string.defaultAddress.toString());
+            moveToLocation(ubication1, "Ubicación 1");
         };
 
         view.findViewById<Button>(R.id.storeAddressOne).setOnClickListener {
-            moveToLocation(ubication2, R.string.storeAddressOne.toString());
+            moveToLocation(ubication2, "Ubicación 2");
         };
 
         view.findViewById<Button>(R.id.storeAddressTwo).setOnClickListener {
-            moveToLocation(ubication3, R.string.storeAddressTwo.toString());
+            moveToLocation(ubication3, "Ubicación 3");
         };
 
         return view;
@@ -55,7 +55,7 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
         maps.uiSettings.isZoomControlsEnabled = true;
 
         // Mover a la primera ubicación por defecto
-        moveToLocation(ubication1, R.string.defaultAddress.toString());
+        moveToLocation(ubication1, "Ubicación 1");
     }
 
     private fun moveToLocation(location: LatLng, title: String) {

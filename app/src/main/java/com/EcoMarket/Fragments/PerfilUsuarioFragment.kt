@@ -24,9 +24,9 @@ class PerfilUsuarioFragment : Fragment() {
 
 
         // Asignar a las vistas
-        view.findViewById<TextView>(R.id.tv_nombre).text = "Nombre: $nombre"
-        view.findViewById<TextView>(R.id.tv_correo).text = "Correo: $correo"
-        view.findViewById<TextView>(R.id.tv_telefono).text = "Teléfono: $telefono"
+        view.findViewById<TextView>(R.id.tv_nombre).text = "$nombre"
+        view.findViewById<TextView>(R.id.tv_correo).text = " $correo"
+        view.findViewById<TextView>(R.id.tv_telefono).text = "$telefono"
 
         // Ir a editar perfil
         view.findViewById<Button>(R.id.btn_editar).setOnClickListener {

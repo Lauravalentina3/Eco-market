@@ -9,9 +9,9 @@
 
 
     <TextView
-        android:id="@+id/texto"
-        android:layout_width="434dp"
-        android:layout_height="56dp"
+        android:id="@+id/textodireccion"
+        android:layout_width="457dp"
+        android:layout_height="60dp"
         android:background="@drawable/imagen_borde_redondo"
         android:fontFamily="serif"
         android:paddingLeft="12dp"
@@ -25,10 +25,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.004" />
 
     <ImageView
         android:layout_width="352dp"
@@ -66,7 +65,7 @@
         android:background="@drawable/borde_peque"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/imagen"
+        android:src="@drawable/oil"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.088"
@@ -80,7 +79,7 @@
         android:background="@drawable/borde_peque"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/imagen"
+        android:src="@drawable/imagenprodict"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -95,7 +94,7 @@
         android:background="@drawable/borde_peque"
         android:clipToOutline="true"
         android:scaleType="centerCrop"
-        android:src="@drawable/imagen"
+        android:src="@drawable/imagen3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.933"

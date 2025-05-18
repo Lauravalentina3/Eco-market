@@ -1,5 +1,6 @@
 package com.EcoMarket.Fragments
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -11,8 +12,6 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.navigation.fragment.findNavController
 import com.EcoMarket.R
 import com.EcoMarket.Activities.MainActivity
@@ -25,73 +24,57 @@ import com.google.android.gms.tasks.Task
 
 class LoginFragment : Fragment() {
 
-    private lateinit var registerTextView: TextView
-    private lateinit var resetPasswordTextView: TextView
-    private lateinit var loginButton: Button
-    private lateinit var emailEditText: EditText
-    private lateinit var passwordEditText: EditText
-    private lateinit var googleSignInButton: Button
+    private lateinit var textViewRegistrar: TextView
+    private lateinit var textViewRecuperarContraseña: TextView
+    private lateinit var buttonLogin: Button
+    private lateinit var editTextCorreo: EditText
+    private lateinit var editTextContrasena: EditText
+    private lateinit var btnGoogle: Button
+
     private lateinit var mGoogleSignInClient: GoogleSignInClient
-    private lateinit var googleSignInLauncher: ActivityResultLauncher<Intent>
-    private val GOOGLE_SIGN_IN_REQUEST_CODE = 123
+    private val RC_SIGN_IN = 123
     private val TAG = "GoogleSignIn"
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        // Configurar Google Sign In
-        val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .requestProfile()
-            .build()
-
-        // Crear el cliente de Google SignIn
-        mGoogleSignInClient = GoogleSignIn.getClient(requireActivity(), googleSignInOptions)
-
-        // Inicializar el ActivityResultLauncher para el inicio de sesión con Google
-        googleSignInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
-            handleSignInResult(task)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el layout para este fragmento
         return inflater.inflate(R.layout.fragment_login, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inicializar las vistas después de que el layout ha sido inflado
-        registerTextView = view.findViewById(R.id.textRegistrologin)
-        resetPasswordTextView = view.findViewById(R.id.textResetPassword)
-        loginButton = view.findViewById(R.id.buttonLogin)
-        emailEditText = view.findViewById(R.id.editTextCorreo)
-        passwordEditText = view.findViewById(R.id.contraseña_usuario_login)
-        googleSignInButton = view.findViewById(R.id.btnGoogle) // ID Correcto del botón de Google
+        // Inicializar vistas
+        textViewRegistrar = view.findViewById(R.id.textRegistrologin)
+        textViewRecuperarContraseña = view.findViewById(R.id.textResetPassword)
+        buttonLogin = view.findViewById(R.id.buttonLogin)
+        editTextCorreo = view.findViewById(R.id.editTextCorreo)
+        editTextContrasena = view.findViewById(R.id.contraseña_usuario_login)
+        btnGoogle = view.findViewById(R.id.btnGoogle)
 
-        registerTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_registroFragment)
+        // Configurar Google Sign In
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestEmail()
+            .requestProfile()
+            .build()
+
+        mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
+
+        btnGoogle.setOnClickListener {
+            signIn()
         }
 
-        resetPasswordTextView.setOnClickListener {
-            findNavController().navigate(R.id.action_loginFragment_to_recuperacionContrasenaFragment)
-        }
-
-        loginButton.setOnClickListener {
-            val correo = emailEditText.text.toString().trim()
-            val contrasena = passwordEditText.text.toString().trim()
+        // Botón de login con correo/contraseña
+        buttonLogin.setOnClickListener {
+            val correo = editTextCorreo.text.toString().trim()
+            val contrasena = editTextContrasena.text.toString().trim()
 
             if (correo.isEmpty()) {
                 Toast.makeText(requireContext(), "Por favor ingresa tu correo electrónico", Toast.LENGTH_SHORT).show()
             } else if (contrasena.isEmpty()) {
                 Toast.makeText(requireContext(), "Por favor ingresa tu contraseña", Toast.LENGTH_SHORT).show()
             } else {
-                // Aquí deberías implementar la lógica de autenticación real (como se explicó anteriormente)
                 if (correo == "pepitoperez@gmail.com" && contrasena == "pepito2025") {
                     findNavController().navigate(R.id.action_loginFragment_to_homefragment)
                 } else {
@@ -100,42 +83,50 @@ class LoginFragment : Fragment() {
             }
         }
 
-        googleSignInButton.setOnClickListener {
-            signIn()
+        // Registro y recuperación
+        textViewRegistrar.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registroFragment)
+        }
+
+        textViewRecuperarContraseña.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_recuperacionContrasenaFragment)
         }
     }
 
     private fun signIn() {
         val signInIntent = mGoogleSignInClient.signInIntent
-        googleSignInLauncher.launch(signInIntent) // Usar el ActivityResultLauncher
+        startActivityForResult(signInIntent, RC_SIGN_IN)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == RC_SIGN_IN && resultCode == Activity.RESULT_OK) {
+            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
+            handleSignInResult(task)
+        }
     }
 
     private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
         try {
             val account = completedTask.getResult(ApiException::class.java)
 
-            // Inicio de sesión exitoso con Google
-            Log.d(TAG, "signInSuccess: ${account?.email}")
-            Toast.makeText(requireContext(), "Bienvenido ${account?.displayName}", Toast.LENGTH_LONG).show()
+            Log.d(TAG, "signInSuccess: ${account.email}")
+            Toast.makeText(requireContext(), "Bienvenido ${account.displayName}", Toast.LENGTH_LONG).show()
 
-            // Ir a MainActivity
-            val intent = Intent(requireContext(), MainActivity::class.java)
-            account?.email?.let { intent.putExtra("USER_EMAIL", it) }
-            account?.displayName?.let { intent.putExtra("USER_NAME", it) }
-            startActivity(intent)
-            requireActivity().finish() // Opcional: Cerrar la pantalla de inicio de sesión
-        } catch (exception: ApiException) {
-            // Error en el inicio de sesión con Google
-            Log.w(TAG, "signInResult:failed code=${exception.statusCode}")
+            findNavController().navigate(R.id.action_loginFragment_to_homefragment)
 
-            val mensaje = when (exception.statusCode) {
+        } catch (e: ApiException) {
+            Log.e(TAG, "signInResult:failed code=${e.statusCode}")
+
+            val mensaje = when (e.statusCode) {
                 10 -> "Error de configuración. Verifica la huella SHA-1"
                 12500 -> "Error con Google Play Services"
                 12501 -> "Inicio de sesión cancelado por el usuario"
-                else -> "Error al iniciar sesión (código: ${exception.statusCode})"
+                else -> "Error al iniciar sesión (código: ${e.statusCode})"
             }
+
             Toast.makeText(requireContext(), mensaje, Toast.LENGTH_LONG).show()
         }
     }
 }
-

@@ -8,8 +8,8 @@
 
     <TextView
         android:id="@+id/inicio_sesion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="307dp"
+        android:layout_height="63dp"
         android:layout_marginTop="84dp"
         android:fontFamily="sans-serif-medium"
         android:text="@string/inicio_Sesion"
@@ -17,6 +17,7 @@
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,7 +26,7 @@
         style="@style/EditTextRounded"
         android:layout_width="290dp"
         android:layout_height="42dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/contraseña"
         android:inputType="textPassword"
         android:textAlignment="center"
@@ -35,50 +36,52 @@
         app:layout_constraintStart_toStartOf="@+id/editTextCorreo"
         app:layout_constraintTop_toBottomOf="@+id/textResetPassword3" />
 
-    <TextView
-        android:id="@+id/correo_electronicologin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:text="@string/correo_electronico"
-        android:textColor="@color/negro"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inicio_sesion" />
-
-    <TextView
-        android:id="@+id/textResetPassword3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/contraseña_texto"
-        android:textColor="@color/negro"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCorreo" />
-
     <EditText
         android:id="@+id/editTextCorreo"
         style="@style/EditTextRounded"
         android:layout_width="288dp"
         android:layout_height="48dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
         android:hint="@string/Ejemplocorreo"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textColor="@color/negro"
         android:textColorHint="@color/gris_letra"
         app:layout_constraintEnd_toEndOf="@+id/inicio_sesion"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="@+id/inicio_sesion"
         app:layout_constraintTop_toBottomOf="@+id/correo_electronicologin" />
+
+    <TextView
+        android:id="@+id/textResetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/resetPasswordLabel"
+        android:textColor="@color/negro"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
+        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
+
+    <TextView
+        android:id="@+id/textResetPassword3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/contraseña_texto"
+        android:textColor="@color/negro"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCorreo" />
 
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="0dp"
         android:layout_height="63dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:backgroundTint="@color/verde_fondo"
         android:text="@string/inicio_Sesion"
         android:textColor="@color/blanco"
@@ -89,50 +92,47 @@
         app:strokeColor="@color/blanco"
         app:strokeWidth="3dp" />
 
+    <TextView
+        android:id="@+id/correo_electronicologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="68dp"
+        android:text="@string/correo_electronico"
+        android:textColor="@color/negro"
+        android:textSize="15sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inicio_sesion" />
+
     <Button
         android:id="@+id/btnGoogle"
-        android:layout_width="330dp"
-        android:layout_height="77dp"
+        android:layout_width="301dp"
+        android:layout_height="67dp"
         android:layout_margin="20dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="88dp"
         android:backgroundTint="@color/blanco"
         android:drawableStart="@drawable/google"
         android:text="@string/ingresa_google"
         android:textAlignment="textEnd"
         android:textColor="@color/negro"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:cornerRadius="15dp"
         app:icon="@drawable/google"
         app:iconSize="50sp"
         app:iconTint="@null"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/sin_cuenta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textResetPassword"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867"
         app:strokeColor="@color/verde_fondo"
         app:strokeWidth="3dp" />
-
-    <TextView
-        android:id="@+id/textResetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/resetPasswordLabel"
-        android:textColor="@color/negro"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="@+id/buttonLogin"
-        app:layout_constraintStart_toStartOf="@+id/buttonLogin"
-        app:layout_constraintTop_toBottomOf="@+id/buttonLogin" />
 
     <TextView
         android:id="@+id/sin_cuenta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="76dp"
         android:layout_marginBottom="80dp"
         android:text="@string/sin_cuenta"
         android:textColor="@color/negro"
@@ -144,7 +144,7 @@
         android:id="@+id/textRegistrologin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="16dp"
         android:text="@string/registrate"
         android:textColor="@color/verde_fondo"
         android:textSize="16sp"

@@ -6,10 +6,10 @@
     <string name="minutos">00</string>
     <string name="segundos">00</string>
     <string name="puntos">:</string>
-    <string name="inicio_Sesion">Iniciar Sesion\n</string>
+    <string name="inicio_Sesion">Iniciar Sesion</string>
     <string name="Ejemplocorreo">Ejemplo@correo.edu.co</string>
     <string name="contraseña">**********</string>
-    <string name="resetPasswordLabel">Recuperar contraseña\n</string>
+    <string name="resetPasswordLabel">Recuperar contraseña</string>
     <string name="registrate">Registrate</string>
     <string name="sin_cuenta">¿No tienes cuenta?</string>
     <string name="correo_electronico">Correo Electronico</string>
@@ -19,8 +19,8 @@
     <string name="enviar">Enviar</string>
     <string name="Recuperar">Recuperar contraseña</string>
     <string name="cuenta">¿ya tienes cuenta?</string>
-    <string name="perfil_editar">Editar Perfil\n</string>
-    <string name="perfil_guardar_cambios">Guardar Cambios \n</string>
+    <string name="perfil_editar">Editar Perfil</string>
+    <string name="perfil_guardar_cambios">Guardar Cambios</string>
     <string name="perfil_contraseña_hint">Contraseña</string>
     <string name="nombre">Nombre\n</string>
     <string name="perfil_foto_descripcion">Cambiar foto</string>
@@ -31,12 +31,12 @@
     <string name="editar_perfil">Editar perfil</string>
     <string name="productos">Productos</string>
     <string name="carrito">Carrito\n</string>
-    <string name="texto">Pepita recibelo en av 68-53 sur</string>
+    <string name="texto">Pepita recibelo en :</string>
     <string name="horas_text">Horas\n</string>
     <string name="minutos_text">Minutos</string>
     <string name="Segundos_text">Segundos</string>
     <string name="bienvenid">bienvenid@</string>
-    <string name="perfil_imagen_descripcion">"eco marxet imagen "</string>
+    <string name="perfil_imagen_descripcion">"eco marxet imagen"</string>
     <string name="perfil_nombre_completo">Pepito Perez</string>
     <string name="perfil_correo_electronico">PepitoPerez@ucompensar.edu.co\n</string>
     <string name="perfil_numero_telefono">1234567809</string>
@@ -57,11 +57,11 @@
     <string name="nombre_bolsa_garfield">Bolsa de Garfield</string>
     <string name="descripcion_bolsa_garfield">Bolsa de tela con diseño de Garfield</string>
     <string name="precio_bolsa_garfield">Precio: $20.400</string>
-    <string name="disponible_bolsa_garfield">Disponible: 2 unidades</string>
+    <string name="disponible_bolsa_garfield">Disponible: 7 unidades</string>
     <string name="nombre_bolsa_mandala">Bolsa de Mandalas</string>
     <string name="descripcion_bolsa_mandala">Bolsa de tela con diseño de mandalas</string>
     <string name="precio_bolsa_mandala">Precio: $20.400</string>
-    <string name="disponible_bolsa_mandala">Disponible: 2 unidades</string>
+    <string name="disponible_bolsa_mandala">Productos agotados</string>
     <string name="telefono">Telefono\n</string>
     <string name="menos">-</string>
     <string name="mas">+</string>
@@ -78,6 +78,7 @@
     <string name="defaultAddress">calle 15 c #11-29</string>
     <string name="storeAddressOne">avenida 56 #98-40</string>
     <string name="storeAddressTwo">carrera 26a #96-22</string>
-    <string name="titleStoreAddresses">"EcoSur "</string>
+    <string name="titleStoreAddresses">"Maps"</string>
+    <string name="Ubicacion">Ubicacion\n</string>
 
 </resources>

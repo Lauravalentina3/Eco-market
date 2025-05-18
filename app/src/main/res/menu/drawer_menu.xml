@@ -16,6 +16,9 @@
         <item
             android:id="@+id/carritoFragment"
             android:title="@string/carrito" />
+        <item
+            android:id="@+id/ubicacionFragment"
+            android:title="@string/Ubicacion" />
 
     </group>
 

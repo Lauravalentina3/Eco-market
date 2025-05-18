@@ -55,7 +55,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.perfilfragment,
                 R.id.editarperfilfragment,
                 R.id.productosFragment,
-                R.id.carritoFragment
+                R.id.carritoFragment,
+                R.id.ubicacionFragment
             ),
             drawerLayout
         )

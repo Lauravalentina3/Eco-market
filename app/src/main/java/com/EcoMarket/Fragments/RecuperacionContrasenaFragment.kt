@@ -21,7 +21,7 @@ class RecuperacionContrasenaFragment : Fragment() {
     private lateinit var ediTextCorreo: EditText
     private lateinit var buttonEnviar: Button
     private lateinit var textResetPassword: TextView
-    private lateinit var sharedPreferences: SharedPreferences // Declarar como propiedad de la clase
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
