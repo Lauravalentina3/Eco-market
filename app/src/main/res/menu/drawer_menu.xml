@@ -11,14 +11,20 @@
             android:id="@+id/editarperfilfragment"
             android:title="@string/editar_perfil" />
         <item
+
+            android:id="@+id/productosDisponiblesFragment"
+            android:title="@string/Productos_disponibles" />
+        <item
             android:id="@+id/productosFragment"
             android:title="@string/productos" />
         <item
             android:id="@+id/carritoFragment"
             android:title="@string/carrito" />
+
         <item
             android:id="@+id/ubicacionFragment"
             android:title="@string/Ubicacion" />
+
 
     </group>
 

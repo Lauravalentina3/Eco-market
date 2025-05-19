@@ -75,10 +75,13 @@
     <string name="terminos_y_condiciones">Terminos y condiciones</string>
         <string name="texto_ir_a_login">¿Ya tienes cuenta? Inicia Sesión</string>
     <string name="ingresa_google">Ingresa con Google</string>
-    <string name="defaultAddress">calle 15 c #11-29</string>
-    <string name="storeAddressOne">avenida 56 #98-40</string>
-    <string name="storeAddressTwo">carrera 26a #96-22</string>
+    <string name="defaultAddress">Ventura Terreros</string>
+    <string name="storeAddressOne">Gran Plaza soacha</string>
+    <string name="storeAddressTwo">Unisur</string>
     <string name="titleStoreAddresses">"Maps"</string>
-    <string name="Ubicacion">Ubicacion\n</string>
+    <string name="Productos_disponibles">Productos disponibles</string>
+    <string name="Ubicacion">Ubicacion</string>
+    <string name="Agotado">Agotado</string>
+    <string name="Dispo">Disponible</string>
 
 </resources>

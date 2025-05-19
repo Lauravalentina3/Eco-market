@@ -6,12 +6,12 @@
     android:background="@color/blanco">
 
     <LinearLayout
+        android:id="@+id/layout_productos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:gravity="center_horizontal"
-        android:id="@+id/layout_productos">
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/tv_titulo"
@@ -24,6 +24,7 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <!-- Bolsa Animales -->
         <LinearLayout
             android:id="@+id/layout_bolsa_animales"
             android:layout_width="match_parent"
@@ -34,6 +35,16 @@
             android:orientation="horizontal"
             android:padding="16dp"
             android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/animales"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="animales"
+                android:scaleType="centerCrop"
+                android:src="@drawable/animales"/>
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -88,6 +99,7 @@
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
+        <!-- Bolsa 5kg -->
         <LinearLayout
             android:id="@+id/layout_bolsa_5kg"
             android:layout_width="match_parent"
@@ -98,6 +110,16 @@
             android:orientation="horizontal"
             android:padding="16dp"
             android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/animales"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="5kg"
+                android:scaleType="centerCrop"
+                android:src="@drawable/kg" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -152,6 +174,7 @@
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
+        <!-- Bolsa Garfield -->
         <LinearLayout
             android:id="@+id/layout_bolsa_garfield"
             android:layout_width="match_parent"
@@ -163,12 +186,21 @@
             android:padding="16dp"
             android:gravity="center_vertical">
 
+            <ImageView
+                android:id="@+id/animales"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="garfield"
+                android:scaleType="centerCrop"
+                android:src="@drawable/garfield"/>
+
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="vertical"
-                tools:ignore="ExtraText">
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/tv_bolsa_garfield_titulo"
@@ -178,6 +210,7 @@
                     android:textColor="@color/negro"
                     android:textSize="16sp"
                     android:textStyle="bold" />
+
                 <TextView
                     android:id="@+id/tv_bolsa_garfield_detalle"
                     android:layout_width="wrap_content"
@@ -216,6 +249,7 @@
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
+        <!-- Bolsa Mandalas -->
         <LinearLayout
             android:id="@+id/layout_bolsa_mandalas"
             android:layout_width="match_parent"
@@ -226,6 +260,16 @@
             android:orientation="horizontal"
             android:padding="16dp"
             android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/animales"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="mandalas"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mandalas" />
 
             <LinearLayout
                 android:layout_width="0dp"
@@ -262,7 +306,7 @@
                 android:backgroundTint="@color/verde_fondo" />
 
             <TextView
-                android:id="@+id/tv_cantidad_bolsa_mandala"
+                android:id="@+id/tv_cantidad_bolsa_mandalas"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
@@ -272,14 +316,13 @@
                 android:paddingRight="8dp" />
 
             <Button
-                android:id="@+id/btn_add_bolsa_mandala"
+                android:id="@+id/btn_add_bolsa_mandalas"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:text="@string/mas"
                 android:textColor="@color/blanco"
                 android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
-
         <TextView
             android:id="@+id/tv_resumen"
             android:layout_width="wrap_content"

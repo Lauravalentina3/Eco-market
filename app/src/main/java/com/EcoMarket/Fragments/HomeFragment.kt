@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
 
         textodireccion.setOnClickListener {
             val navController = findNavController()
-            navController.navigate(R.id.UbicacionFragment)
+            navController.navigate(R.id.ubicacionFragment)
         }
     }
 

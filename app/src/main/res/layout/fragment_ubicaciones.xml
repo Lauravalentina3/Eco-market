@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:id="@+id/UbicacionFragment">
+    android:id="@+id/ubicacionFragment">
 
 
     <TextView
@@ -22,7 +22,8 @@
         android:id="@+id/googleMapsFragment"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
-        android:layout_height="618dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@color/negro" />
 
     <HorizontalScrollView

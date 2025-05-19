@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/inicioFragment">
 
@@ -118,9 +119,13 @@
             app:popUpToInclusive="true" />
     </fragment>
     <fragment
-        android:id="@+id/UbicacionFragment"
+        android:id="@+id/ubicacionFragment"
         android:name="com.EcoMarket.Fragments.UbicacionFragment"
         android:label="UbicacionFragment"
         android:layout="@layout/fragment_ubicaciones" />
-
+    <fragment
+        android:id="@+id/productosDisponiblesFragment"
+        android:name="com.EcoMarket.Fragments.ProductosDisponiblesFragment"
+        android:label="@string/Productos_disponibles"
+        android:layout="@layout/fragment_productos_disponibles" />
 </navigation>

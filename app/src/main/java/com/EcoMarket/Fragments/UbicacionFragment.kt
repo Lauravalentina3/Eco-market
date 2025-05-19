@@ -18,9 +18,9 @@ class UbicacionFragment : Fragment(), OnMapReadyCallback {
     private lateinit var maps: GoogleMap;
 
     // Ubicaciones predefinidas
-    private val ubication1 = LatLng(4.664442334606499, -74.05587327586935);
-    private val ubication2 = LatLng(4.631187845815241, -74.08685583351244);
-    private val ubication3 = LatLng(4.608120001676332, -74.07538776061747);
+    private val ubication1 = LatLng(4.587982,-74.1975324);
+    private val ubication2 = LatLng(4.5863992,-74.2034869);
+    private val ubication3 = LatLng(4.5863992,-74.2034869);
 
     override fun onCreateView(
         inflater: LayoutInflater,
