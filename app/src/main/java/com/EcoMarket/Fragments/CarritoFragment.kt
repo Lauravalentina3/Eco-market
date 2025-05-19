@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
@@ -54,6 +55,10 @@ class CarritoFragment : Fragment() {
     private var btnAddBolsa5kg: Button? = null
     private var btnAddBolsaGarfield: Button? = null
     private var btnAddBolsaMandala: Button? = null
+    private var imgBolsaAnimales: ImageView? = null
+    private var imgBolsa5kg: ImageView? = null
+    private var imgBolsaGarfield: ImageView? = null
+    private var imgBolsaMandalas: ImageView? = null
 
     // Cantidades de productos.  Se inicializan en onCreate.
     private var cantidadBolsaAnimales = 0
@@ -104,28 +109,34 @@ class CarritoFragment : Fragment() {
         tvCantidadBolsaAnimales = view.findViewById(R.id.tv_cantidad_bolsa_animales)
         tvCantidadBolsa5kg = view.findViewById(R.id.tv_cantidad_bolsa_5kg)
         tvCantidadBolsaGarfield = view.findViewById(R.id.tv_cantidad_bolsa_garfield)
-        tvCantidadBolsaMandala = view.findViewById(R.id.tv_cantidad_bolsa_mandala)
+        tvCantidadBolsaMandala = view.findViewById(R.id.tv_cantidad_bolsa_mandalas)
 
         // Inicialización de los botones de agregar.
         btnAddBolsaAnimales = view.findViewById(R.id.btn_add_bolsa_animales)
         btnAddBolsa5kg = view.findViewById(R.id.btn_add_bolsa_5kg)
         btnAddBolsaGarfield = view.findViewById(R.id.btn_add_bolsa_garfield)
         btnAddBolsaMandala = view.findViewById(R.id.btn_add_bolsa_mandala)
+
+
+        imgBolsaAnimales = view.findViewById(R.id.img_bolsa_animales)
+        imgBolsa5kg = view.findViewById(R.id.img_bolsa_5kg)
+        imgBolsaGarfield = view.findViewById(R.id.img_bolsa_garfield)
+        imgBolsaMandalas = view.findViewById(R.id.img_bolsa_mandalas)
     }
 
     private fun obtenerCantidades() {
-        cantidadBolsaAnimales = prefs!!.getInt(CLAVE_CANTIDAD_ANIMALES, 0)
-        cantidadBolsa5kg = prefs!!.getInt(CLAVE_CANTIDAD_5KG, 0)
-        cantidadBolsaGarfield = prefs!!.getInt(CLAVE_CANTIDAD_GARFIELD, 0)
-        cantidadBolsaMandalas = prefs!!.getInt(CLAVE_CANTIDAD_MANDALAS, 0)
+        cantidadBolsaAnimales = prefs?.getInt(CLAVE_CANTIDAD_ANIMALES, 0) ?: 0
+        cantidadBolsa5kg = prefs?.getInt(CLAVE_CANTIDAD_5KG, 0) ?: 0
+        cantidadBolsaGarfield = prefs?.getInt(CLAVE_CANTIDAD_GARFIELD, 0) ?: 0
+        cantidadBolsaMandalas = prefs?.getInt(CLAVE_CANTIDAD_MANDALAS, 0) ?: 0
     }
 
     private fun guardarCantidad(clave: String, cantidad: Int) {
-        prefs!!.edit().putInt(clave, cantidad).apply()
+        prefs?.edit()?.putInt(clave, cantidad)?.apply()
     }
 
     private fun configurarListeners() {
-        btnEliminarBolsaAnimales!!.setOnClickListener {
+        btnEliminarBolsaAnimales?.setOnClickListener {
             if (cantidadBolsaAnimales > 0) {
                 cantidadBolsaAnimales--
                 guardarCantidad(CLAVE_CANTIDAD_ANIMALES, cantidadBolsaAnimales)
@@ -133,7 +144,7 @@ class CarritoFragment : Fragment() {
                 actualizarResumen()
                 Toast.makeText(context, "Se eliminó una Bolsa de Animales", Toast.LENGTH_SHORT).show()
                 if (cantidadBolsaAnimales == 0) {
-                    layoutBolsaAnimales!!.visibility = View.GONE
+                    layoutBolsaAnimales?.visibility = View.GONE
                 }
             } else {
                 Toast.makeText(context, "No hay Bolsas de Animales en el carrito", Toast.LENGTH_SHORT).show()
@@ -151,7 +162,7 @@ class CarritoFragment : Fragment() {
             Toast.makeText(context, "Se añadió una Bolsa de Animales", Toast.LENGTH_SHORT).show()
         }
 
-        btnEliminarBolsa5kg!!.setOnClickListener {
+        btnEliminarBolsa5kg?.setOnClickListener {
             if (cantidadBolsa5kg > 0) {
                 cantidadBolsa5kg--
                 guardarCantidad(CLAVE_CANTIDAD_5KG, cantidadBolsa5kg)
@@ -159,7 +170,7 @@ class CarritoFragment : Fragment() {
                 actualizarResumen()
                 Toast.makeText(context, "Se eliminó una Bolsa de 5kg", Toast.LENGTH_SHORT).show()
                 if (cantidadBolsa5kg == 0) {
-                    layoutBolsa5kg!!.visibility = View.GONE
+                    layoutBolsa5kg?.visibility = View.GONE
                 }
             } else {
                 Toast.makeText(context, "No hay Bolsas de 5kg en el carrito", Toast.LENGTH_SHORT).show()
@@ -177,7 +188,7 @@ class CarritoFragment : Fragment() {
             Toast.makeText(context, "Se añadió una Bolsa de 5kg", Toast.LENGTH_SHORT).show()
         }
 
-        btnEliminarBolsaGarfield!!.setOnClickListener {
+        btnEliminarBolsaGarfield?.setOnClickListener {
             if (cantidadBolsaGarfield > 0) {
                 cantidadBolsaGarfield--
                 guardarCantidad(CLAVE_CANTIDAD_GARFIELD, cantidadBolsaGarfield)
@@ -185,7 +196,7 @@ class CarritoFragment : Fragment() {
                 actualizarResumen()
                 Toast.makeText(context, "Se eliminó una Bolsa de Garfield", Toast.LENGTH_SHORT).show()
                 if (cantidadBolsaGarfield == 0) {
-                    layoutBolsaGarfield!!.visibility = View.GONE
+                    layoutBolsaGarfield?.visibility = View.GONE
                 }
             } else {
                 Toast.makeText(context, "No hay Bolsas de Garfield en el carrito", Toast.LENGTH_SHORT).show()
@@ -203,7 +214,7 @@ class CarritoFragment : Fragment() {
             Toast.makeText(context, "Se añadió una Bolsa de Garfield", Toast.LENGTH_SHORT).show()
         }
 
-        btnEliminarBolsaMandalas!!.setOnClickListener {
+        btnEliminarBolsaMandalas?.setOnClickListener {
             if (cantidadBolsaMandalas > 0) {
                 cantidadBolsaMandalas--
                 guardarCantidad(CLAVE_CANTIDAD_MANDALAS, cantidadBolsaMandalas)
@@ -211,7 +222,7 @@ class CarritoFragment : Fragment() {
                 actualizarResumen()
                 Toast.makeText(context, "Se eliminó una Bolsa de Mandalas", Toast.LENGTH_SHORT).show()
                 if (cantidadBolsaMandalas == 0) {
-                    layoutBolsaMandalas!!.visibility = View.GONE
+                    layoutBolsaMandalas?.visibility = View.GONE
                 }
             } else {
                 Toast.makeText(context, "No hay Bolsas de Mandalas en el carrito", Toast.LENGTH_SHORT).show()
@@ -229,7 +240,7 @@ class CarritoFragment : Fragment() {
             Toast.makeText(context, "Se añadió una Bolsa de Mandalas", Toast.LENGTH_SHORT).show()
         }
 
-        btnPagar!!.setOnClickListener {
+        btnPagar?.setOnClickListener {
             val totalProductos =
                 cantidadBolsaAnimales + cantidadBolsa5kg + cantidadBolsaGarfield + cantidadBolsaMandalas
             if (totalProductos > 0) {
@@ -238,7 +249,7 @@ class CarritoFragment : Fragment() {
                     "Gracias por tu compra con esto ayudas al planeta 💖",
                     Toast.LENGTH_LONG
                 ).show()
-                prefs!!.edit().clear().apply()
+                prefs?.edit()?.clear()?.apply()
                 resetCantidades()
                 mostrarDetallesCarrito()
                 actualizarResumen()
@@ -259,52 +270,52 @@ class CarritoFragment : Fragment() {
         val precioBolsaMandalasFormateado = formatoMonedaCO.format(PRECIO_BOLSA_MANDALAS.toLong())
 
         if (cantidadBolsaAnimales > 0) {
-            tvBolsaAnimalesDetalle!!.text =
+            tvBolsaAnimalesDetalle?.text =
                 "Bolsa de Animales - Cantidad: " + cantidadBolsaAnimales + " | Precio: " + precioBolsaAnimalesFormateado + " | Subtotal: " + formatoMonedaCO.format(
                     (cantidadBolsaAnimales * PRECIO_BOLSA_ANIMALES).toLong()
                 )
-            layoutBolsaAnimales!!.visibility = View.VISIBLE
-            tvCantidadBolsaAnimales!!.text =
+            layoutBolsaAnimales?.visibility = View.VISIBLE
+            tvCantidadBolsaAnimales?.text =
                 "Cantidad: $cantidadBolsaAnimales"
         } else {
-            layoutBolsaAnimales!!.visibility = View.GONE
-            tvCantidadBolsaAnimales!!.text = ""
+            layoutBolsaAnimales?.visibility = View.GONE
+            tvCantidadBolsaAnimales?.text = ""
         }
 
         if (cantidadBolsa5kg > 0) {
-            tvBolsa5kgDetalle!!.text =
+            tvBolsa5kgDetalle?.text =
                 "Bolsa de 5kg - Cantidad: " + cantidadBolsa5kg + " | Precio: " + precioBolsa5kgFormateado + " | Subtotal: " + formatoMonedaCO.format(
                     (cantidadBolsa5kg * PRECIO_BOLSA_5KG).toLong()
                 )
-            layoutBolsa5kg!!.visibility = View.VISIBLE
-            tvCantidadBolsa5kg!!.text = "Cantidad: $cantidadBolsa5kg"
+            layoutBolsa5kg?.visibility = View.VISIBLE
+            tvCantidadBolsa5kg?.text = "Cantidad: $cantidadBolsa5kg"
         } else {
-            layoutBolsa5kg!!.visibility = View.GONE
-            tvCantidadBolsa5kg!!.text = ""
+            layoutBolsa5kg?.visibility = View.GONE
+            tvCantidadBolsa5kg?.text = ""
         }
 
         if (cantidadBolsaGarfield > 0) {
-            tvBolsaGarfieldDetalle!!.text =
+            tvBolsaGarfieldDetalle?.text =
                 "Bolsa de Garfield - Cantidad: " + cantidadBolsaGarfield + " | Precio: " + precioBolsaGarfieldFormateado + " | Subtotal: " + formatoMonedaCO.format(
                     (cantidadBolsaGarfield * PRECIO_BOLSA_GARFIELD).toLong()
                 )
-            layoutBolsaGarfield!!.visibility = View.VISIBLE
-            tvCantidadBolsaGarfield!!.text = "Cantidad: $cantidadBolsaGarfield"
+            layoutBolsaGarfield?.visibility = View.VISIBLE
+            tvCantidadBolsaGarfield?.text = "Cantidad: $cantidadBolsaGarfield"
         } else {
-            layoutBolsaGarfield!!.visibility = View.GONE
-            tvCantidadBolsaGarfield!!.text = ""
+            layoutBolsaGarfield?.visibility = View.GONE
+            tvCantidadBolsaGarfield?.text = ""
         }
 
         if (cantidadBolsaMandalas > 0) {
-            tvBolsaMandalasDetalle!!.text =
+            tvBolsaMandalasDetalle?.text =
                 "Bolsa de Mandalas - Cantidad: " + cantidadBolsaMandalas + " | Precio: " + precioBolsaMandalasFormateado + " | Subtotal: " + formatoMonedaCO.format(
                     (cantidadBolsaMandalas * PRECIO_BOLSA_MANDALAS).toLong()
                 )
-            layoutBolsaMandalas!!.visibility = View.VISIBLE
-            tvCantidadBolsaMandala!!.text = "Cantidad: $cantidadBolsaMandalas"
+            layoutBolsaMandalas?.visibility = View.VISIBLE
+            tvCantidadBolsaMandala?.text = "Cantidad: $cantidadBolsaMandalas"
         } else {
-            layoutBolsaMandalas!!.visibility = View.GONE
-            tvCantidadBolsaMandala!!.text = ""
+            layoutBolsaMandalas?.visibility = View.GONE
+            tvCantidadBolsaMandala?.text = ""
         }
     }
 
@@ -314,7 +325,7 @@ class CarritoFragment : Fragment() {
         val totalPrecio =
             (cantidadBolsaAnimales * PRECIO_BOLSA_ANIMALES) + (cantidadBolsa5kg * PRECIO_BOLSA_5KG) +
                     (cantidadBolsaGarfield * PRECIO_BOLSA_GARFIELD) + (cantidadBolsaMandalas * PRECIO_BOLSA_MANDALAS)
-        tvResumen!!.text =
+        tvResumen?.text =
             "Total de productos: " + totalProductos + "  |  Total a pagar: " + formatoMonedaCO.format(
                 totalPrecio.toLong()
             )

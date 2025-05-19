@@ -323,13 +323,13 @@
 
                 <TextView
                     android:id="@+id/nombre_bolsa_mandala"
-                    android:layout_width="wrap_content"
+                    android:layout_width="114dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
                     android:text="@string/nombre_bolsa_mandala"
                     android:textColor="@color/negro"
-                    android:textStyle="bold"
                     android:textSize="14sp"
-                    android:layout_marginTop="4dp" />
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/descripcion_bolsa_mandala"
