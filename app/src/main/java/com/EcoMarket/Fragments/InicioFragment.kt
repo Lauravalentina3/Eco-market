@@ -1,6 +1,5 @@
 package com.EcoMarket.Fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -29,13 +28,9 @@ class InicioFragment : Fragment() {
 
         Log.d("InicioFragment", "onViewCreated: Iniciando Fragment de inicio")
 
-        // Configurar el temporizador de redirección a Home Activity
+        // Configurar el temporizador de redirección al RolFragment
         Handler(Looper.getMainLooper()).postDelayed({
-            // Navegar al HomeFragment (asumiendo que estás usando Navigation Component)
-            findNavController().navigate(R.id.HomeFragment)
-            // Si no usas Navigation Component, puedes iniciar la actividad así:
-            // val intent = Intent(requireContext(), HomeActivity::class.java)
-            // startActivity(intent)
+            findNavController().navigate(R.id.action_inicioFragment_to_rolFragment)
         }, SPLASH_TIME_OUT)
     }
 }

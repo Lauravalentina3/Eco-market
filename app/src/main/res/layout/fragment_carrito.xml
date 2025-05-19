@@ -1,112 +1,335 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/blanco">
 
     <LinearLayout
+        android:id="@+id/layout_productos"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="50dp"
-        android:gravity="center_horizontal"
-        android:id="@+id/layout_productos">
+        android:padding="16dp"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/tv_titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="@string/carrito_titulo"
-            android:textColor="@color/negro"
+            android:layout_marginBottom="16dp"
+            android:text="Carrito de Compras"
             android:textAlignment="center"
-            android:textSize="24sp"
+            android:textColor="@color/verde_fondo"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
         <LinearLayout
-            android:id="@+id/layout_clinique"
+            android:id="@+id/layout_bolsa_animales"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/imagen_borde_redondo"
             android:elevation="4dp"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tv_clinique_titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/clinique_corrector_titulo"
-                android:textColor="@color/blanco"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/img_bolsa_animales"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="animales"
+                android:scaleType="centerCrop"
+                android:src="@drawable/animales" />
 
-            <TextView
-                android:id="@+id/tv_clinique_detalle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/clinique_corrector_detalle"
-                android:textColor="@color/blanco" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bolsa_animales_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bolsa Animales"
+                    android:textColor="@color/negro"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_bolsa_animales_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/textosprod"
+                    android:textColor="@color/negro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_eliminar_clinique"
+                android:id="@+id/btn_eliminar_bolsa_animales"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:backgroundTint="@color/verde_fondo"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
+                tools:ignore="TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/tv_cantidad_bolsa_animales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/gris"
-                android:text="@string/eliminar"
-                android:textColor="@color/gris_oscuro" />
+                android:text="0"
+                android:textSize="18sp"
+                android:textColor="@color/negro"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_add_bolsa_animales"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:backgroundTint="@color/verde_fondo"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
+                tools:ignore="TouchTargetSizeCheck" />
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/layout_maybelline"
+            android:id="@+id/layout_bolsa_5kg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="32dp"
+            android:layout_marginBottom="8dp"
             android:background="@drawable/imagen_borde_redondo"
             android:elevation="4dp"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/tv_maybelline_titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/maybelline_corrector_titulo"
-                android:textColor="@color/blanco"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+            <ImageView
+                android:id="@+id/img_bolsa_5kg"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="5kg"
+                android:scaleType="centerCrop"
+                android:src="@drawable/kg" />
 
-            <TextView
-                android:id="@+id/tv_maybelline_detalle"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/maybelline_corrector_detalle"
-                android:textColor="@color/blanco" />
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bolsa_5kg_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_5kg"
+                    android:textColor="@color/negro"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_bolsa_5kg_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/textosprod"
+                    android:textColor="@color/negro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
 
             <Button
-                android:id="@+id/btn_eliminar_maybelline"
+                android:id="@+id/btn_eliminar_bolsa_5kg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
+
+            <TextView
+                android:id="@+id/tv_cantidad_bolsa_5kg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_gravity="center_horizontal"
-                android:backgroundTint="@color/gris"
-                android:text="@string/eliminar"
-                android:textColor="@color/gris_oscuro" />
+                android:text="0"
+                android:textSize="18sp"
+                android:textColor="@color/negro"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_add_bolsa_5kg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/layout_bolsa_garfield"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/imagen_borde_redondo"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/img_bolsa_garfield"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="garfield"
+                android:scaleType="centerCrop"
+                android:src="@drawable/garfield"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bolsa_garfield_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_garfield"
+                    android:textColor="@color/negro"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_bolsa_garfield_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/textosprod"
+                    android:textColor="@color/negro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_eliminar_bolsa_garfield"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
+
+            <TextView
+                android:id="@+id/tv_cantidad_bolsa_garfield"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="18sp"
+                android:textColor="@color/negro"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_add_bolsa_garfield"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_bolsa_mandalas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/imagen_borde_redondo"
+            android:elevation="4dp"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/img_bolsa_mandalas"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@drawable/borde_peque"
+                android:clipToOutline="true"
+                android:contentDescription="mandalas"
+                android:scaleType="centerCrop"
+                android:src="@drawable/mandalas" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_bolsa_mandalas_titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_mandala"
+                    android:textColor="@color/negro"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_bolsa_mandalas_detalle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/textosprod"
+                    android:textColor="@color/negro"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_eliminar_bolsa_mandalas"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/menos"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
+
+            <TextView
+                android:id="@+id/tv_cantidad_bolsa_mandalas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:textSize="18sp"
+                android:textColor="@color/negro"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp" />
+
+            <Button
+                android:id="@+id/btn_add_bolsa_mandalas"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:text="@string/mas"
+                android:textColor="@color/blanco"
+                android:backgroundTint="@color/verde_fondo" />
+        </LinearLayout>
         <TextView
             android:id="@+id/tv_resumen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="24dp"
-            android:text="@string/resumen"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Total de productos: 0 | Total a pagar: $0"
             android:textColor="@color/negro"
-            android:textSize="16sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
         <Button
@@ -114,10 +337,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:gravity="start|center_vertical"
+            android:text="Pagar"
             android:textAlignment="center"
-            android:backgroundTint="@color/rosado"
-            android:text="@string/pagar_ahora"
+            android:backgroundTint="@color/verde_fondo"
             android:textColor="@color/blanco" />
     </LinearLayout>
 </ScrollView>

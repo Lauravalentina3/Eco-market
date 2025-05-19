@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/ubicacionFragment">
+
+
+    <TextView
+        android:id="@+id/titleStoreAdresses"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/verde_boton"
+        android:text="@string/titleStoreAddresses"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="25sp" />
+
+
+    <fragment
+        android:id="@+id/googleMapsFragment"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/negro" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/locationsContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@color/verde_fondo"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/storeAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:text="@string/defaultAddress"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@color/negro"
+                />
+
+            <Button
+                android:id="@+id/storeAddressOne"
+                android:layout_width="182dp"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:layout_marginBottom="56dp"
+                android:textStyle="bold"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:text="@string/storeAddressOne"
+                android:textAlignment="center"
+                android:textColor="@color/negro" />
+
+            <Button
+                android:id="@+id/storeAddressTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_margin="5dp"
+                android:textStyle="bold"
+                android:text="@string/storeAddressTwo"
+                android:layout_marginBottom="56dp"
+                android:backgroundTint="@color/verde_boton"
+                android:fontFamily="serif"
+                android:textAlignment="center"
+                android:textColor="@color/negro"/>
+        </LinearLayout>
+
+    </HorizontalScrollView>
+</LinearLayout>

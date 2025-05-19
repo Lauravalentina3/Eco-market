@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="100dp"
+    android:background="@color/verde_fondo"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:padding="15dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:layout_width="192dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:text="@string/app_name"
+        android:textColor="@color/blanco"
+        android:textSize="35sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="99dp"
+        android:layout_height="wrap_content"
+        android:text="@string/bienvenid"
+        android:textAlignment="center"
+        android:textColor="@color/blanco"
+        android:textSize="15sp" />
+</LinearLayout>

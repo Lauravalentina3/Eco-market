@@ -1,4 +1,4 @@
-package com.example.tallersegundomomento.fragments
+package com.EcoMarket.Fragments
 
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,8 @@ import android.view.*
 import android.widget.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.tallersegundomomento.R
+import com.EcoMarket.R
+
 
 class EditarPerfilFragment : Fragment() {
 
@@ -27,8 +28,8 @@ class EditarPerfilFragment : Fragment() {
         val btnCambiarFoto = view.findViewById<Button>(R.id.btn_cambiar_foto)
 
         // Datos existentes (o por defecto)
-        etNombre.setText(prefs.getString("nombre", "Laura Guarín"))
-        etCorreo.setText(prefs.getString("correo", "lauraguasan05@gmail.com"))
+        etNombre.setText(prefs.getString("nombre", "Laura y kate"))
+        etCorreo.setText(prefs.getString("correo", "lauraykate05@gmail.com"))
         etTelefono.setText(prefs.getString("telefono", "3106558734"))
 
         // Botón simbólico de cambiar foto
