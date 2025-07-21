@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/blanco"
+    android:id="@+id/productosDisponiblesFragment">
+
+    <!-- Barra superior -->
+    <TextView
+        android:id="@+id/titulo_barra"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Productos_disponibles"
+        android:textSize="24sp"
+        android:padding="16dp"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:background="@color/verde_boton"
+        android:textColor="@color/negro"
+        android:elevation="4dp" />
+
+    <!-- ScrollView para productos -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- Contenedor con 2 columnas -->
+        <GridLayout
+            android:id="@+id/grid_productos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:padding="16dp"
+            android:alignmentMode="alignMargins"
+            android:columnOrderPreserved="false">
+
+            <!-- Producto 1 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bolsa ecológica"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:layout_marginBottom="6dp"
+                    android:text="Disponible: 5 unidades"
+                    android:textColor="@color/negro"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/borde_peque"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/animales" />
+
+                <Button
+                    android:id="@+id/btn_disponible1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Dispo"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/verde_fondo"
+                    android:textColor="@color/blanco" />
+            </LinearLayout>
+
+            <!-- Producto 2 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_5kg"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disponible_bolsa_5kg"
+                    android:textSize="14sp"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="6dp"/>
+                <ImageView
+                    android:id="@+id/imageVi"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/borde_peque"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kg" />
+
+                <Button
+                    android:id="@+id/btn_disponible2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Dispo"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/verde_fondo"
+                    android:textColor="@color/blanco" />
+            </LinearLayout>
+
+            <!-- Producto 3 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_garfield"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disponible_bolsa_garfield"
+                    android:textSize="14sp"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="6dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/borde_peque"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/garfield" />
+
+                <Button
+                    android:id="@+id/btn_disponible3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Dispo"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/verde_fondo"
+                    android:textColor="@color/blanco" />
+            </LinearLayout>
+
+            <!-- Producto 4 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:layout_columnWeight="1"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nombre_bolsa_mandala"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="4dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/disponible_bolsa_mandala"
+                    android:textSize="14sp"
+                    android:textColor="@color/negro"
+                    android:layout_marginBottom="6dp"/>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="140dp"
+                    android:layout_height="140dp"
+                    android:background="@drawable/borde_peque"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mandalas" />
+
+                <Button
+                    android:id="@+id/btn_agotado4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Agotado"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/verde_boton"
+                    android:textColor="@color/negro" />
+            </LinearLayout>
+
+        </GridLayout>
+    </ScrollView>
+</LinearLayout>

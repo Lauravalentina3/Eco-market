@@ -1,62 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo">
+    android:background="@color/blanco"
+    android:gravity="center_horizontal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
-        android:padding="40dp">
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="250dp"
+        android:layout_height="238dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/borde_peque"
+        android:clipToOutline="true"
+        android:contentDescription="@string/perfil_imagen_descripcion"
+        android:scaleType="centerCrop"
+        android:src="@drawable/imagenecomarketkateylau"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="239dp"
-            android:layout_height="234dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginBottom="62dp"
-            android:clipToOutline="true"
-            android:contentDescription="@string/perfil_imagen_descripcion"
-            android:elevation="6dp"
-            android:src="@drawable/eco_market" />
+    <Button
+        android:id="@+id/btn_editar"
+        android:layout_width="217dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="@color/verde_fondo"
+        android:text="@string/perfil_editar"
+        android:textColor="@color/blanco"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_telefono"
+        tools:ignore="TouchTargetSizeCheck" />
 
-        <TextView
-            android:id="@+id/tv_nombre"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/perfil_nombre_completo"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:textColor="@color/negro"
-            android:layout_marginBottom="16dp" />
+    <TextView
+        android:id="@+id/nombredeperfil"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="@string/nombre"
+        android:textColor="@color/verde_fondo"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
-        <TextView
-            android:id="@+id/tv_correo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/perfil_correo_electronico"
-            android:textSize="16sp"
-            android:textColor="@color/negro"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp" />
+    <TextView
+        android:id="@+id/tv_telefono"
+        style="@style/EditTextRounded"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/telefono_label"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
-        <TextView
-            android:id="@+id/tv_telefono"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/perfil_numero_telefono"
-            android:textSize="16sp"
-            android:textColor="@color/negro"
-            android:textStyle="bold"
-            android:layout_marginBottom="32dp" />
+    <TextView
+        android:id="@+id/tv_correoperfil"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="@string/correo_electronico"
+        android:textColor="@color/verde_fondo"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombre" />
 
-        <Button
-            android:id="@+id/btn_editar"
-            android:layout_width="wrap_content"
-            android:layout_height="41dp"
-            android:backgroundTint="@color/verde_fondo"
-            android:text="@string/perfil_editar"
-            android:textColor="@color/blanco" />
-    </LinearLayout>
-</ScrollView>
+    <TextView
+        android:id="@+id/tv_correo"
+        style="@style/EditTextRounded"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_correoperfil"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/telefono_label"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="32dp"
+        android:gravity="center"
+        android:text="@string/telefono"
+        android:textColor="@color/verde_fondo"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_correo" />
+
+    <TextView
+        android:id="@+id/tv_nombre"
+        style="@style/EditTextRounded"
+        android:layout_width="292dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nombredeperfil"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.EcoMarket.R
 
 class HomeFragment : Fragment() {
@@ -17,9 +18,10 @@ class HomeFragment : Fragment() {
     private lateinit var textViewHoras: TextView
     private lateinit var textViewMinutos: TextView
     private lateinit var textViewSegundos: TextView
+    private lateinit var textodireccion: TextView
 
     private val handler = Handler(Looper.getMainLooper())
-    private var tiempoRestante = 8 * 60 * 60 * 1000L  // 8 horas en milisegundos
+    private var tiempoRestante = 2 * 60 * 60 * 1000L
 
     private val runnable: Runnable = object : Runnable {
         override fun run() {
@@ -49,10 +51,10 @@ class HomeFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflar el layout para este fragmento
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
@@ -62,8 +64,14 @@ class HomeFragment : Fragment() {
         textViewHoras = view.findViewById(R.id.textViewHoras)
         textViewMinutos = view.findViewById(R.id.textViewMinutos)
         textViewSegundos = view.findViewById(R.id.textViewSegundos)
+        textodireccion = view.findViewById(R.id.textodireccion)
 
         handler.post(runnable)
+
+        textodireccion.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.ubicacionFragment)
+        }
     }
 
     override fun onDestroyView() {

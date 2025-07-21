@@ -1,0 +1,71 @@
+package com.EcoMarket.Fragments
+
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import androidx.fragment.app.Fragment
+import com.EcoMarket.R
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.MarkerOptions
+
+class UbicacionFragment : Fragment(), OnMapReadyCallback {
+    private lateinit var maps: GoogleMap;
+
+    // Ubicaciones predefinidas
+    private val ubication1 = LatLng(4.587982,-74.1975324);
+    private val ubication2 = LatLng(4.5863992,-74.2034869);
+    private val ubication3 = LatLng(4.5863992,-74.2034869);
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        val view = inflater.inflate(R.layout.fragment_ubicaciones, container, false);
+
+        val mapFragment = childFragmentManager.findFragmentById(R.id.googleMapsFragment) as SupportMapFragment;
+        mapFragment.getMapAsync(this);
+
+        // Configurar los botones
+        view.findViewById<Button>(R.id.storeAddress).setOnClickListener {
+            moveToLocation(ubication1, "Ubicación 1");
+        };
+
+        view.findViewById<Button>(R.id.storeAddressOne).setOnClickListener {
+            moveToLocation(ubication2, "Ubicación 2");
+        };
+
+        view.findViewById<Button>(R.id.storeAddressTwo).setOnClickListener {
+            moveToLocation(ubication3, "Ubicación 3");
+        };
+
+        return view;
+    }
+
+    override fun onMapReady(googleMap: GoogleMap) {
+        maps = googleMap;
+
+        // Habilitar controles de Zoom
+        maps.uiSettings.isZoomControlsEnabled = true;
+
+        // Mover a la primera ubicación por defecto
+        moveToLocation(ubication1, "Ubicación 1");
+    }
+
+    private fun moveToLocation(location: LatLng, title: String) {
+        // Limpiar marcadores anteriores
+        maps.clear();
+
+        // Añadir marcador a la ubicación seleccionada
+        maps.addMarker(MarkerOptions().position(location).title(title));
+
+        // Mover hacía la ubicación y hacer Zoom
+        maps.moveCamera(CameraUpdateFactory.newLatLngZoom(location, 12f));
+    }
+}

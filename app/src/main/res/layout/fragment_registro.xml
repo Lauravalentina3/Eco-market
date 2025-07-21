@@ -1,168 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RegistroActivity"
-    android:background="@color/blanco">
+    android:background="@color/blanco"
+    tools:context=".Fragments.RegistroFragment">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/tv_nombreapp"
+        android:layout_width="210dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="56dp"
+        android:text="@string/registrate"
+        android:textAlignment="center"
+        android:textColor="@color/verde_fondo"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_descripcion_registro"
+        android:layout_width="318dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="32dp"
+        android:gravity="center"
+        android:text="@string/descripcion_registro"
+        android:textColor="@color/negro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nombreapp" />
+
+    <CheckBox
+        android:id="@+id/terminosCondiciones"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:text="@string/terminos_y_condiciones"
+        android:textColor="@color/negro"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextRepetirContrasena" />
+
+    <EditText
+        android:id="@+id/editTextNombres"
+        style="@style/EditTextRounded"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_nombre"
+        android:inputType="text"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/gris_letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_descripcion_registro" />
+
+    <EditText
+        android:id="@+id/editTextCorreo"
+        style="@style/EditTextRounded"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/gris_letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextApellidos" />
+
+    <EditText
+        android:id="@+id/editTextContrasena"
+        style="@style/EditTextRounded"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_password"
+        android:inputType="textPassword"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/gris_letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCorreo" />
+
+    <EditText
+        android:id="@+id/editTextRepetirContrasena"
+        style="@style/EditTextRounded"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_confirm_password"
+        android:inputType="textPassword"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/gris_letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextContrasena" />
+
+    <EditText
+        android:id="@+id/editTextApellidos"
+        style="@style/EditTextRounded"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="32dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="@string/hint_apellidos"
+        android:inputType="text"
+        android:textColor="@color/negro"
+        android:textColorHint="@color/gris_letra"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNombres" />
+
+    <Button
+        android:id="@+id/buttonRegistro"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@color/verde_fondo"
+        android:text="@string/boton_registrar"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="@color/blanco"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/terminosCondiciones"
+        app:strokeColor="@color/blanco"
+        app:strokeWidth="3dp" />
+
+    <TextView
+        android:id="@+id/buttonRegresar"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical"
-        android:orientation="vertical"
-        android:padding="20dp">
+        android:layout_marginTop="8dp"
+        android:fontFamily="serif"
+        android:text="@string/olvidarc"
+        android:textAlignment="center"
+        android:textColor="@color/negro"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textRegistrologin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegistro"
+        app:layout_constraintVertical_bias="0.407" />
 
-        <TextView
-            android:id="@+id/tv_nombreapp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/registrate"
-            android:textAlignment="center"
-            android:textColor="@color/verde_fondo"
-            android:textSize="38dp"
-            android:textStyle="bold" />
+    <TextView
+        android:id="@+id/textRegistrologin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="@string/texto_ir_a_login"
+        android:textColor="@color/verde_fondo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_descripcion_registro"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/descripcion_registro"
-            android:layout_marginTop="20dp"
-            android:textColor="@color/negro"
-            android:gravity="center"/>
-
-        <EditText
-            android:id="@+id/editTextNombres"
-            style="@style/EditTextRounded"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:hint="nombres"
-            android:inputType="text"
-            android:textColorHint="@color/gris_letra" />
-
-        <EditText
-            android:id="@+id/editTextApellidos"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:textColor="@color/negro"
-            android:hint="apellidos"
-            android:textColorHint="@color/gris_letra"
-            style="@style/EditTextRounded" />
-
-        <EditText
-            android:id="@+id/editTextCorreo"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:textColor="@color/negro"
-            android:hint="correo_electronico"
-            android:textColorHint="@color/gris_letra"
-            style="@style/EditTextRounded" />
-
-        <EditText
-            android:id="@+id/editTextTelefono"
-            android:hint="Telefono"
-            style="@style/EditTextRounded" />
-
-        <EditText
-            android:id="@+id/editTextContrasena"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:textColor="@color/negro"
-            android:hint="contraseña"
-            android:textColorHint="@color/gris_letra"
-            style="@style/EditTextRounded" />
-
-        <EditText
-            android:id="@+id/editTextRepetirContrasena"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:inputType="text"
-            android:textColor="@color/negro"
-            android:hint="repetir_contraseña"
-            android:textColorHint="@color/gris_letra"
-            style="@style/EditTextRounded" />
-
-        <CheckBox
-            android:id="@+id/terminosCondiciones"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="30dp"
-            android:ems="10"
-            android:gravity="center"
-            android:text="terminos y condiciones"
-            android:textColor="@color/negro"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <Button
-            android:id="@+id/buttonRegistro"
-            android:layout_width="278dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="27dp"
-            android:backgroundTint="@color/verde_fondo"
-            android:text="@string/registrate"
-            android:textAlignment="center"
-            android:textColor="@color/blanco"
-            android:textSize="35sp"
-            android:layout_gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintVertical_bias="0.589"
-            app:strokeWidth="3dp"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            app:layout_constraintTop_toBottomOf="@+id/tvIntroText"
-            app:strokeColor="@color/blanco"
-            />
-
-        <TextView
-            android:id="@+id/buttonRegresar"
-            android:layout_width="180dp"
-            android:layout_height="22dp"
-            android:fontFamily="serif"
-            android:text="@string/cuenta"
-            android:textAlignment="center"
-            android:textColor="@color/negro"
-            android:textSize="16sp"
-            tools:layout_editor_absoluteX="68dp"
-            tools:layout_editor_absoluteY="594dp" />
-
-        <TextView
-            android:id="@+id/textRegistrologin"
-            android:layout_width="108dp"
-            android:layout_height="19dp"
-            android:layout_marginEnd="44dp"
-            android:layout_marginBottom="116dp"
-            android:text="@string/inicio_Sesion"
-            android:textColor="@color/verde_fondo"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </LinearLayout>
-
-
-
-</ScrollView>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
